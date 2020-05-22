@@ -1,91 +1,44 @@
-select {
-    width: 60px;
-    margin-top: 8px;
-}
+/*
+ * Custom Roll templates
+ */
 
-th {
-    text-align: left;
-}
+ .sheet-rolltemplate-powerdesc {
 
-
-.sheet-attributes {
-    width: 100%;
-}
-
-.sheet-nameRow {
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-width: 1px;
-    text-align: center;
+ }
+.sheet-rolltemplate-powerdesc .sheet-container {
+    background-color: #ede695;
+    border: 1px solid black;
     padding: 2px;
 }
-
-.sheet-nameRow2 {
-    border-bottom-style: solid;
-    border-width: 1px;
-    text-align: center;
-    padding: 2px;
-    margin-bottom: 8px;
+.sheet-rolltemplate-powerdesc .sheet-header {
+    font-weight: bold;
+}
+.sheet-rolltemplate-powerdesc .sheet-row {
+    font-style: italic;
 }
 
-.sheet-title {
-    text-align: center;
-    border-top-style: none;
-    padding 10px;
-}
 
-.sheet-outer {
-    border-style: double;
-    border-width: 4px;
-    padding: 8px;
-}
+/*
+ * Custom roll buttons
+ */
+ button[type="roll"].sheet-tochat:before{
+    font-family: 'Pictos';
+    content: 'w';
+  }
+  
+  button[type="roll"].sheet-tochat:hover{
+    background-position: 0;
+    margin-top: 1px;
+    margin-left: 1px;
+  }
+  
+  button[type="roll"].sheet-tochat{
+    font-family: 'Pictos';
+    border: none;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
+    padding: 0px;
+    margin: 0px;
 
-.charsheet {
-    background-color: #ededed;
-}
-
-.sheet-weaponsName {
-    width: 213px;
-}
-
-.sheet-weaponsStat {
-    width: 45px;
-}
-
-.sheet-weaponsBonus {
-    width: 55px;
-}
-
-.sheet-weaponDescDamage {
-    width: 50px;
-}
-
-.sheet-rolltemplate-attack .sheet-wholeTemplate {
-    border-style: double;
-    border-width: 4px;
-    padding: 8px;
-    background-color: #ededed;
-}
-
-.sheet-rolltemplate-attack h4 {
-    text-align: center;
-}
-
-.sheet-rolltemplate-attack table {
-    text-align: center;
-    width: 100%;
-}
-
-.sheet-rolltemplate-attack caption {
-    caption-side: bottom;
-    font-size: 8px;
-}
-
-.sheet-rolltemplate-attack hr {
-    color: black;
-    width: 100%;
-}
-
-.sheet-shortText {
-    width: 132px;
-}
+  }
