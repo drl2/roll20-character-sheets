@@ -1,3 +1,190 @@
+/* main selector tabs */
+.sheet-character,
+.sheet-config,
+.sheet-vehicle {
+	display: none;
+}
+
+/* show the selected tab */
+.sheet-tabstoggle[value="character"] ~ div.sheet-character,
+.sheet-tabstoggle[value="config"] ~ div.sheet-config,
+.sheet-tabstoggle[value="vehicle"] ~ div.sheet-vehicle {
+  display: block;
+}
+.sheet-maintab-button {
+  background-color: #ede695;
+  border: 1px solid black;
+  padding: 2px;
+}
+.sheet-tab-group {
+  margin-top: 0px;
+  float: right;
+}
+.sheet-character, .sheet-config, .sheet-vehicle {
+  margin-top: 28px;
+}
+
+/* 
+*sheet layout 
+*/
+.sheet-overall-wrapper {
+  max-width: 850px;
+}
+
+
+.sheet-main-grid-container {
+  display: grid;
+  grid-gap: 8px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "cultural physical social"
+    "powers powers powers"
+    "stats attacks attacks";
+}
+
+.sheet-main-grid-container .sheet-cultural {
+  grid-area: cultural;
+}
+.sheet-main-grid-container .sheet-physical {
+  grid-area: physical;
+}
+.sheet-main-grid-container .sheet-social {
+  grid-area: social;
+}
+.sheet-main-grid-container .sheet-powers {
+  grid-area: powers;
+}
+.sheet-main-grid-container .shee-stats {
+  grid-area: stats;
+}
+.sheet-main-grid-container .sheet-attacks {
+  grid-area: attacks;
+}
+
+.sheet-personal-info-grid-container {
+  display: grid;
+  grid-gap: 4px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "info-label info-field"
+}
+
+.sheet-personal-info-grid-container .sheet-info-label {
+  grid-area: info-label;
+}
+.sheet-personal-info-grid-container .sheet-info-field {
+  grid-area: info-field;
+}
+
+
+.sheet-powers-grid-container {
+  display: grid;
+  grid-gap: 3px;
+  grid-template-columns: 75px 505px 75px 75px;
+  grid-template-columns: auto;
+  grid-template-areas: 
+    "cps power-desc ips actions"
+    "... stat-mods stat-mods ...";
+}
+.sheet-powers-grid-container .sheet-cps {
+  grid-area: cps;
+}
+.sheet-powers-grid-container .sheet-power-desc {
+  grid-area: power-desc;
+}
+.sheet-powers-grid-container .sheet-ips {
+  grid-area: ips;
+}
+.sheet-powers-grid-container .sheet-actions {
+  grid-area: actions;
+}
+.sheet-powers-grid-container .sheet-stat-mods {
+  grid-area: stat-mods;
+}
+.sheet-stat-mods {
+  border: 1px dashed black;
+  margin-bottom: 3px;
+}
+
+/*
+ *  modified input/label formats
+ */
+.sheet-short-label {
+  width: 75px;
+}
+.sheet-short-field {
+  width: 70px;
+}
+.sheet-number-text {
+  width: 50px;
+}
+.sheet-med-field {
+  width: 100px;
+}
+.sheet-section-header-label{
+  margin-top: 5x;
+  width: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+}
+.sheet-personal-info-label {
+  font-weight: bold;
+  width: 100px;
+  text-transform: uppercase;
+  text-align: right;
+  padding-top: 3px;
+}
+input.sheet-power-desc{
+  width: 675px;
+}
+.sheet-power-desc {
+  width: 675px;
+}
+.sheet-cps {
+  font-weight: bold;
+  
+}
+.sheet-ips {
+  font-weight: bold;
+  
+}
+.sheet-actions {
+  width: 30px;
+}
+.sheet-inventing {
+  font-style: italic;
+  font-weight: bold;
+}
+.sheet-statmod-label-cell {
+  font-weight: bold;
+  width: 70px;
+}
+.sheet-dropdown-toggle:before {
+  font-family: 'Pictos';
+  content: 'l';
+}
+.sheet-dropdown-toggle:hover {
+  background-position: 0;
+  margin-top: 1px !important; 
+  margin-left: 1px !important;  /* was being overridden for some reason so added important */
+}
+button[type="action"].sheet-dropdown-toggle{
+  font-family: 'Pictos';
+  border: none;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  padding: 0px;
+  padding-right: 3px;
+  margin: 0px;
+}
+
+input.sheet-stats-toggle:not(:checked) ~ div.sheet-stat-mods {
+    display: none;
+}
 /*
  * Custom Roll templates
  */
@@ -40,5 +227,7 @@
     box-shadow: none;
     padding: 0px;
     margin: 0px;
-
   }
+
+ 
+   

@@ -1,436 +1,491 @@
-<div>
-    <div class="section-details" style="border-style:solid;border-width:2px;">
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><b>Civilian ID:</b></span>
-				<span class="table-data"><input type="text" name="attr_identity-name" title="identity-name"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Gender:</b></span>
-				<span class="table-data"><input style="width:75px" type="text" name="attr_gender" title="gender" /></span>
+
+<div class="tab-group">
+	<button type="action" name="act_character" class="maintab-button">Character</button>
+	<button type="action" name="act_vehicle" class="maintab-button">Vehicle</button>
+	<button type="action" name="act_config" class="maintab-button">Configuration</button>
+</div>
+<input type='hidden' class='tabstoggle' name='attr_sheetTab'  value='character'  />
+
+
+<div class="character overall-wrapper">
+	<div class="main-grid-container">
+		<div class="cultural">
+			<div class="personal-info-grid-container">
+				<div class="info_label personal-info-label">True ID</div>
+				<div class="info_field"><input type="text" name="attr_identity-name" title="identity-name"/></div>
+				<div class="info_label personal-info-label">Side</div>
+				<div class="info_field"><input type="text" name="attr_side" title="side" /></div>
+				<div class="info_label personal-info-label">Species</div>
+				<div class="info_field"><input type="text" name="attr_species" title="species" /></div>
+				<div class="info_label personal-info-label">Birthplace</div>
+				<div class="info_field"><input type="text" name="attr_birthplace" title="birthplace" /></div>
+				<div class="info_label personal-info-label">Culture</div>
+				<div class="info_field"><input type="text" name="attr_culture" title="culture"/></div>
+				<div class="info_label personal-info-label">Origin Type</div>
+				<div class="info_field"><input type="text" name="attr_origin_type" title="origin_type" /></div>
 			</div>
 		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><b>Age:</b></span>
-				<span class="table-data"><input type="number" name="attr_age" title="age" value="0"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Height:</b></span>
-				<span class="table-data"><input style="width:50px;" type="text" name="attr_height" title="height"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Weight:</b></span>
-				<span class="table-data"><input style="width:50px;" type="text" name="attr_weight" title="weight"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Mass:</b></span>
-				<span class="table-data"><input style="width:50px;" type="text" name="attr_mass" title="mass"/></span>
-				<span class="table-data"><button type='roll' value='@{character_name} rolls mass scoring: [[@{mass}]]' name='roll_Mass'></button>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Eyes:</b></span>
-				<span class="table-data"><input style="width:100px;" type="text" name="attr_eyes" title="eyes"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Hair:</b></span>
-				<span class="table-data"><input style="width:100px;" type="text" name="attr_hair" title="hair"/></span>
+		<div class="physical">
+			<div class="personal-info-grid-container">
+				<div class="info_label personal-info-label short-label">Gender</div>
+				<div class="info_field"><input class="med-field" type="text" name="attr_gender" title="gender" /></div>
+				<div class="info_label personal-info-label short-label">Age</div>
+				<div class="info_field"><input class="short-field" type="text" name="attr_age" title="age" /></div>
+				<div class="info_label personal-info-label short-label">Height</div>
+				<div class="info_field"><input class="short-field" type="text" name="attr_height" title="height"/></div>
+				<div class="info_label personal-info-label short-label">Weight</div>
+				<div class="info_field"><input class="short-field" type="text" name="attr_weight" title="weight"/></div>
+				<div class="info_label personal-info-label short-label">Mass</div>
+				<div class="info_field"><input class="short-field" type="text" name="attr_mass" title="mass"/><button type='roll' value='@{character_name} rolls mass scoring: [[@{mass}]]' name='roll_Mass'></button></div>
 			</div>
 		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><b>Birthplace:</b></span>
-				<span class="table-data"><input type="text" name="attr_birthplace" title="birthplace" /></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Species:</b></span>
-				<span class="table-data"><input style="width:150px;" type="text" name="attr_species" title="species" /></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Culture:</b></span>
-				<span class="table-data"><input style="width:150px;" type="text" name="attr_culture" title="culture"/></span>
+		<div class="social">
+			<div class="personal-info-grid-container">
+				<div class="info_label personal-info-label">Background</div>
+				<div class="info_field"><input type="text" name="attr_skills" title="skills"/></div>
+				<div class="info_label personal-info-label">Motivation</div>
+				<div class="info_field"><input type="text" name="attr_motivation" title="motivation"/></div>
+				<div class="info_label personal-info-label">Legal Status</div>
+				<div class="info_field"><input type="text" name="attr_legal_status" title="legal_status"/></div>
+				<div class="info_label personal-info-label">Sec. Clr.</div>
+				<div class="info_field"><input class="sheet-number-text" type="text" name="attr_security_clearance" title="security_clearance" value="round(@{intelligence_score} + @{cool_score} + (@{exp_earned}/5) -20)" disabled/></div>
+				<div class="info_label personal-info-label">Wealth</div>
+				<div class="info_field"><input class="short-field" type="text" name="attr_wealth" title="wealth"/><button type='roll' value='@{character_name} rolls a wealth check getting: [[@{wealth}]]' name='roll_Wealth'></button></div>
+				<div class="info_label personal-info-label">Luck</div>
+				<div class="info_field"><input class="short-field" type="text" name="attr_luck" title="luck" value="10"/><button type='roll' value='@{character_name} makes a luck check with [[1d20<@{luck}]] successes' name='roll_Luck'></button></div>
 			</div>
 		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><b>Group Affiliation:</b></span>
-				<span class="table-data"><input type="text" name="attr_group" title="group"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Base of Operations:</b></span>
-				<span class="table-data"><input type="text" name="attr_base" title="base"/></span>
+		<div class="powers">
+			<div class="section-header-label">Abilities</div>
+			<div class="powers-grid-container">
+				<div class="cps">CPs:</div>
+				<div class="power-desc inventing">INVENTING: <input class="sheet-number-text" type="text" name="attr_invention_points" title="invention_points" value="round(@{intelligence_score} / 2)" disabled/> Unspent <input class="sheet-number-text" type="text" name="attr_ipoints_remain" title="ipoints_remain" value="@{invention_points}-@{abilityip_total}" disabled/></div>
+				<div class="ips">IPs:</div>
 			</div>
-		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><b>Skills:</b></span>
-				<span class="table-data"><input style="width:300px;" type="text" name="attr_skills" title="skills"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Invention Pts:</b></span>
-				<span class="table-data"><input type="number" name="attr_invention_points" title="invention_points" value="round(@{intelligence_score} / 2)" disabled/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Used:</b></span>
-				<span class="table-data"><input type="number" name="attr_ipoints_used" title="ipoints_used" value="0" /></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Tot Remaining:</b></span>
-				<span class="table-data"><input type="number" name="attr_ipoints_remain" title="ipoints_remain" value="@{invention_points}-@{ipoints_used}" disabled/></span>
-			</div>
-		</div>
-		</div>
-    </div>
-    <div class="section-details" style="border-style:solid;border-width:2px;">
-    	<div class="table">
-			<div class="table-row">
-				<span class="table-data"><b>Motivation:</b></span>
-				<span class="table-data"><input type="text" name="attr_motivation" title="motivation"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Wealth:</b></span>
-				<span class="table-data"><input type="text" name="attr_wealth" title="wealth"/></span>
-				<span class="table-data"><button type='roll' value='@{character_name} rolls a wealth check getting: [[@{wealth}]]' name='roll_Wealth'></button>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Luck:</b></span>
-				<span class="table-data"><input style="width:50px;" type="text" name="attr_luck" title="luck" value="10"/></span>
-				<span class="table-data"><button type='roll' value='@{character_name} makes a luck check with [[1d20<@{luck}]] successes' name='roll_Luck'></button>
-			</div>
-		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><b>Side:</b></span>
-				<span class="table-data"><input type="text" name="attr_side" title="side" /></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Legal Status:</b></span>
-				<span class="table-data"><input type="text" name="attr_legal_status" title="legal_status"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Security Clearance:</b></span>
-				<span class="table-data"><input type="number" name="attr_security_clearance" title="security_clearance" value="round(@{intelligence_score} + @{cool_score} + (@{exp_earned}/5) -20)" disabled/></span>
-			</div>
-		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><b>Origin Type:</b></span>
-				<span class="table-data"><input style="width:400px;" type="text" name="attr_origin_type" title="origin_type" /></span>
-			</div>
-		</div>
-	</div>
-	<div class="section-details" style="border-style:solid;border-width:2px;">
-    	<div class="table">
-			<div class="table-row">
-				<span class="table-data"><b>COST</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><div style="width:45em;display:inline-block;"><b>SUPER POWERS or SUPER ABILITIES</b></div></span>
-			</div>
-		</div>
-		<div class="table">
 			<fieldset class="repeating_powers">	
-				<div class="table-row">
-					<span class="table-data"><input type="number" name="attr_ability_cost" title="ability_cost" value="0"/></span>
-					<span class="table-data">&nbsp;</span>
-					<span class="table-data power-desc"><input style="width:45em" type="text" name="attr_ability_desc" title="ability_desc"/></span>
-					<span class="table-data"><button type="roll" name="roll_power_desc" value="&{template:powerdesc} {{desc=@{ability_desc}}}" class="tochat"></span>
+				<div class="powers-grid-container">
+					<div class="cps"><input type="number" name="attr_ability_cost" title="ability_cost" value="0"/></div>
+					<div class="power-desc"><input class="power-desc" type="text" name="attr_ability_desc" title="ability_desc"/></div>
+					<div class="ips"><input type="number" name="attr_ip_cost" title="ip_cost" value="0"/></div>
+					<div class="actions">
+						<!-- <input type="checkbox" name="attr_options-flag" class="stats-toggle"> -->
+						<button type="roll" name="roll_power_desc" value="&{template:powerdesc} {{desc=@{ability_desc}}}" class="tochat"></button>
+					</div>
+					<!--<div class="stat-mods">
+						<table>
+							<tr>
+								<th class="statmod-label-cell">ST</th>
+								<th class="statmod-label-cell">EN</th>
+								<th class="statmod-label-cell">AG</th>
+								<th class="statmod-label-cell">IN</th>
+								<th class="statmod-label-cell">CL</th>
+								<th class="statmod-label-cell">Ph Def</th>
+								<th class="statmod-label-cell">Mnt Def</th>
+								<th class="statmod-label-cell">Power</th>
+								<th class="statmod-label-cell">Hit Pts</th>
+								<th class="statmod-label-cell">Init</th>
+								<th class="statmod-label-cell">Luck</th>
+							</tr>
+							<tr>
+								<td>
+									<input type="number" name="attr_st_adj" title="st_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_en-adj" title="en_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_ag_adj" title="ag_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_in_adj" title="in_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_cl_adj" title="cl_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_physdef_adj" title="physdef_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_mentdef_adj" title="mentdef_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_pwr_adj" title="pwr_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_hp_adj" title="hp_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_init_adj" title="init_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_luck_adj" title="luck_adj" />
+								</td>
+							</tr>
+							<tr><td colspan=11>&nbsp;</td></tr>
+							<tr>
+								<th class="statmod-label-cell">Attack</th>
+								<th class="statmod-label-cell">All</th>
+								<th class="statmod-label-cell">1</th>
+								<th class="statmod-label-cell">2</th>
+								<th class="statmod-label-cell">3</th>
+								<th class="statmod-label-cell">4</th>
+								<th class="statmod-label-cell">5</th>
+								<th class="statmod-label-cell">6</th>
+								<th class="statmod-label-cell"></th>
+								<th class="statmod-label-cell"></th>
+								<th class="statmod-label-cell"></th>
+							</tr>
+							<tr>
+								<td class="statmod-label-cell">To Hit</td>
+								<td>
+									<input type="number" name="attr_atk_all_adj" title="atk_all_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_atk_1_adj" title="atk_1_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_atk_2_adj" title="atk_2_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_atk_3_adj" title="atk_3_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_atk_4_adj" title="atk_4_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_atk_5_adj" title="atk_5_adj" />
+								</td>
+								<td>
+									<input type="number" name="attr_atk_6_adj" title="atk_6_adj" />
+								</td>
+								<td></td><td></td><td></td>
+							</tr>
+						</table>
+					</div> -->
 				</div>
 			</fieldset>
 		</div>
+		<div class="stats">stats</div>
+		<div class="attacks">attacks</div>
+
 	</div>
-	<div class="section-details" style="border-style:solid;border-width:2px;">
-    	<div class="table">
-			<div class="table-row">
-				<span class="table-data"><b>COST</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>BC</b></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>SCORE</b></span>
+	<div>
+
+		<div class="section-details" style="border-style:solid;border-width:2px;">
+			<div class="table">
+				<div class="table-row">
+					<span class="table-data"><b>COST</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>BC</b></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>SCORE</b></span>
+				</div>
+			</div>
+			<div class="table">
+				<div class="table-row">
+					<span class="table-data"><input type="number" name="attr_strength_cost" title="strength_cost" value="0"/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>ST</b></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input type="number" name="attr_strength_score" title="strength_score"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>SAVE</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>CARRYING CAPACITY:</b></span>
+					<span class="table-data"><input style="width:100px;" type="text" name="attr_carry_capacity" title="carry_capacity"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>BASE HTH DAMAGE:</b></span>
+					<span class="table-data"><input style="width:100px;" type="text" name="attr_hth_damage" title="hth_damage"/></span>
+				</div>
+			</div>
+			<div class="table">
+				<div class="table-row">
+					<span class="table-data"><input type="number" name="attr_endurance_cost" title="endurance_cost" value="0"/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>EN</b></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input type="number" name="attr_endurance_score" title="endurance_score"/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input type="number" name="attr_endurance_save" title="endurance_save"/></span>
+					<span class="table-data"><button type='roll' value='@{character_name} rolls a save against Endurance with [[1d20<?{Endurance Target|@{endurance_save}}]] successes!' name='roll_Endurance_Save'></button>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>ATTACK:</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>To Hit</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>Damage</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>Damage Type</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>Knockback?</b></span>
+				</div>
+			</div>
+			<div class="table">
+				<div class="table-row">
+					<span class="table-data"><input type="number" name="attr_agility_cost" title="agility_cost" value="0"/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>AG</b></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input type="number" name="attr_agility_score" title="agility_score"/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input type="number" name="attr_agility_save" title="agility_save"/></span>
+					<span class="table-data"><button type='roll' value='@{character_name} rolls a save against Agility with [[1d20<?{Agility Target|@{agility_save}}]] successes!' name='roll_Agility_Save'></button>
+					<span class="table-data"><input style="width:75px;" type="text" name="attr_attack_one" title="attack_one"/></span>
+					<span class="table-data"><input type="number" name="attr_tohit_one" title="tohit_one"/></span>
+					<span class="table-data"><button type='roll' value='@{character_name} attacks @{target|foe|character_name} with @{attack_one} and hits [[1d20<?{Combat Target|@{tohit_one}}]] times!' name='roll_AttackOne'></button>
+					<span class="table-data"><input style="width:100px;" type="text" name="attr_damage_one" title="damage_one"/></span>
+					<span class="table-data"><button type='roll' value='@{character_name} does [[@{damage_one}+?{Damage Modification|0}]] of @{damagetype_one}. Does it cause knockback? @{knockback_one}' name='roll_DamageOne'></button>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input style="width:100px;" type="text" name="attr_damagetype_one" title="damagetype_one"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input style="width:25px;" type="text" name="attr_knockback_one" title="knockback_one"/></span>
+				</div>
+			</div>
+			<div class="table">
+				<div class="table-row">
+					<span class="table-data"><input type="number" name="attr_intelligence_cost" title="intelligence_cost" value="0"/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>IN</b></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input type="number" name="attr_intelligence_score" title="intelligence_score"/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input type="number" name="attr_intelligence_save" title="intelligence_save"/></span>
+					<span class="table-data"><button type='roll' value='@{character_name} rolls a save against Intelligence with [[1d20<?{Intelligence Target|@{intelligence_save}}]] successes!' name='roll_Intelligence_Save'></button>
+					<span class="table-data"><input style="width:75px;" type="text" name="attr_attack_two" title="attack_two"/></span>
+					<span class="table-data"><input type="number" name="attr_tohit_two" title="tohit_two"/></span>
+					<span class="table-data"><button type='roll' value='@{character_name} attacks @{target|foe|character_name} with @{attack_two} and hits [[1d20<?{Combat Target|@{tohit_two}}]] times!' name='roll_AttackTwo'></button>
+					<span class="table-data"><input style="width:100px;" type="text" name="attr_damage_two" title="damage_two"/></span>
+					<span class="table-data"><button type='roll' value='@{character_name} does [[@{damage_two}+?{Damage Modification|0}]] of @{damagetype_two}. Does it cause knockback? @{knockback_two}' name='roll_DamageTwo'></button>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input style="width:100px;" type="text" name="attr_damagetype_two" title="damagetype_two"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input style="width:25px;" type="text" name="attr_knockback_two" title="knockback_two"/></span>
+				</div>
+			</div>
+			<div class="table">
+				<div class="table-row">
+					<span class="table-data"><input type="number" name="attr_cool_cost" title="cool_cost" value="0"/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>CL</b></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input type="number" name="attr_cool_score" title="cool_score"/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input type="number" name="attr_cool_save" title="cool_save"/></span>
+					<span class="table-data"><button type='roll' value='@{character_name} rolls a save against Cool with [[1d20<?{Cool Target|@{cool_save}}]] successes!' name='roll_Cool_Save'></button>
+					<span class="table-data"><input style="width:75px;" type="text" name="attr_attack_three" title="attack_three"/></span>
+					<span class="table-data"><input type="number" name="attr_tohit_three" title="tohit_three"/></span>
+					<span class="table-data"><button type='roll' value='@{character_name} attacks @{target|foe|character_name} with @{attack_three} and hits [[1d20<?{Combat Target|@{tohit_three}}]] times!' name='roll_AttackThree'></button>
+					<span class="table-data"><input style="width:100px;" type="text" name="attr_damage_three" title="damage_three"/></span>
+					<span class="table-data"><button type='roll' value='@{character_name} does [[@{damage_three}+?{Damage Modification|0}]] of @{damagetype_three}. Does it cause knockback? @{knockback_three}' name='roll_DamageThree'></button>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input style="width:100px;" type="text" name="attr_damagetype_three" title="damagetype_three"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input style="width:25px;" type="text" name="attr_knockback_three" title="knockback_three"/></span>
+				</div>
+			</div>
+			<div class="table">
+				<div class="table-row">
+					<span class="table-data"><b>DEFENSES:</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>Physical Defense:</b></span>
+					<span class="table-data"><input class="sheet-number-text" type="text" name="attr_physical_def" title="physical_def" value="(@{agility_save}+@{physical_mod}-10)" disabled/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>Physical Def Mod:</b></span>
+					<span class="table-data"><input type="number" name="attr_physical_mod" title="physical_mod" value="0"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>Mental Defense:</b></span>
+					<span class="table-data"><input class="sheet-number-text" type="text" name="attr_mental_def" title="mental_def" value="(@{intelligence_save}+@{mental_mod}-10)" disabled/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>Mental Def Mod:</b></span>
+					<span class="table-data"><input type="number" name="attr_mental_mod" title="mental_mod" value="0"/></span>
+				</div>
 			</div>
 		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><input type="number" name="attr_strength_cost" title="strength_cost" value="0"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>ST</b></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input type="number" name="attr_strength_score" title="strength_score"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>SAVE</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>CARRYING CAPACITY:</b></span>
-				<span class="table-data"><input style="width:100px;" type="text" name="attr_carry_capacity" title="carry_capacity"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>BASE HTH DAMAGE:</b></span>
-				<span class="table-data"><input style="width:100px;" type="text" name="attr_hth_damage" title="hth_damage"/></span>
+		<div class="section-details" style="border-style:solid;border-width:2px;">
+			<div class="table">
+				<div class="table-row">
+					<span class="table-data"><b>Pwr Lvl:</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>EXPERIENCE</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>PROTECTION:</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>Kinetic</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>Energy</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>Bio</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>Entropy</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>Psychic</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>Other</b></span>
+				</div>
 			</div>
-		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><input type="number" name="attr_endurance_cost" title="endurance_cost" value="0"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>EN</b></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input type="number" name="attr_endurance_score" title="endurance_score"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input type="number" name="attr_endurance_save" title="endurance_save"/></span>
-				<span class="table-data"><button type='roll' value='@{character_name} rolls a save against Endurance with [[1d20<?{Endurance Target|@{endurance_save}}]] successes!' name='roll_Endurance_Save'></button>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>ATTACK:</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>To Hit</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>Damage</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>Damage Type</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>Knockback?</b></span>
+			<div class="table">
+				<div class="table-row">
+					<span class="table-data"><input  class="sheet-number-text" type="text" name="attr_power-level" title="power-level" value="(@{abilitycp_total}+@{strength_cost}+@{endurance_cost}+@{agility_cost}+@{intelligence_cost}+@{cool_cost} )" disabled/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>Base:</b></span>
+					<span class="table-data"><input style="width:50px;" type="number" name="attr_exp_base" title="exp_base"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input style="width:100px;" type="text" name="attr_protection_one" title="protection_one"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_kenetic_one" title="kenetic_one"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_energy_one" title="energy_one"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_bio_one" title="bio_one"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_entropy_one" title="entropy_one"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_psychic_one" title="psychic_one"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_other_one" title="other_one"/></span>
+				</div>
 			</div>
-		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><input type="number" name="attr_agility_cost" title="agility_cost" value="0"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>AG</b></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input type="number" name="attr_agility_score" title="agility_score"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input type="number" name="attr_agility_save" title="agility_save"/></span>
-				<span class="table-data"><button type='roll' value='@{character_name} rolls a save against Agility with [[1d20<?{Agility Target|@{agility_save}}]] successes!' name='roll_Agility_Save'></button>
-				<span class="table-data"><input style="width:75px;" type="text" name="attr_attack_one" title="attack_one"/></span>
-				<span class="table-data"><input type="number" name="attr_tohit_one" title="tohit_one"/></span>
-				<span class="table-data"><button type='roll' value='@{character_name} attacks @{target|foe|character_name} with @{attack_one} and hits [[1d20<?{Combat Target|@{tohit_one}}]] times!' name='roll_AttackOne'></button>
-				<span class="table-data"><input style="width:100px;" type="text" name="attr_damage_one" title="damage_one"/></span>
-				<span class="table-data"><button type='roll' value='@{character_name} does [[@{damage_one}+?{Damage Modification|0}]] of @{damagetype_one}. Does it cause knockback? @{knockback_one}' name='roll_DamageOne'></button>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input style="width:100px;" type="text" name="attr_damagetype_one" title="damagetype_one"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input style="width:25px;" type="text" name="attr_knockback_one" title="knockback_one"/></span>
+			<div class="table">
+				<div class="table-row">
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>Earned:</b></span>
+					<span class="table-data"><input style="width:50px;" type="number" name="attr_exp_earned" title="exp_earned"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input style="width:100px;" type="text" name="attr_protection_two" title="protection_two"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_kenetic_two" title="kenetic_two"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_energy_two" title="energy_two"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_bio_two" title="bio_two"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_entropy_two" title="entropy_two"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_psychic_two" title="psychic_two"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_other_two" title="other_two"/></span>
+				</div>
 			</div>
-		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><input type="number" name="attr_intelligence_cost" title="intelligence_cost" value="0"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>IN</b></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input type="number" name="attr_intelligence_score" title="intelligence_score"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input type="number" name="attr_intelligence_save" title="intelligence_save"/></span>
-				<span class="table-data"><button type='roll' value='@{character_name} rolls a save against Intelligence with [[1d20<?{Intelligence Target|@{intelligence_save}}]] successes!' name='roll_Intelligence_Save'></button>
-				<span class="table-data"><input style="width:75px;" type="text" name="attr_attack_two" title="attack_two"/></span>
-				<span class="table-data"><input type="number" name="attr_tohit_two" title="tohit_two"/></span>
-				<span class="table-data"><button type='roll' value='@{character_name} attacks @{target|foe|character_name} with @{attack_two} and hits [[1d20<?{Combat Target|@{tohit_two}}]] times!' name='roll_AttackTwo'></button>
-				<span class="table-data"><input style="width:100px;" type="text" name="attr_damage_two" title="damage_two"/></span>
-				<span class="table-data"><button type='roll' value='@{character_name} does [[@{damage_two}+?{Damage Modification|0}]] of @{damagetype_two}. Does it cause knockback? @{knockback_two}' name='roll_DamageTwo'></button>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input style="width:100px;" type="text" name="attr_damagetype_two" title="damagetype_two"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input style="width:25px;" type="text" name="attr_knockback_two" title="knockback_two"/></span>
+			<div class="table">
+				<div class="table-row">
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>Total:</b></span>
+					<span class="table-data"><input  class="sheet-number-text" type="text" name="attr_exp_total" title="exp_total" value="(@{exp_earned}+@{exp_base})" disabled/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input style="width:100px;" type="text" name="attr_protection_three" title="protection_three"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_kenetic_three" title="kenetic_three"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_energy_three" title="energy_three"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_bio_three" title="bio_three"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_entropy_three" title="entropy_three"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_psychic_three" title="psychic_three"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input type="number" name="attr_other_three" title="other_three"/></span>
+				</div>
 			</div>
-		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><input type="number" name="attr_cool_cost" title="cool_cost" value="0"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>CL</b></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input type="number" name="attr_cool_score" title="cool_score"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input type="number" name="attr_cool_save" title="cool_save"/></span>
-				<span class="table-data"><button type='roll' value='@{character_name} rolls a save against Cool with [[1d20<?{Cool Target|@{cool_save}}]] successes!' name='roll_Cool_Save'></button>
-				<span class="table-data"><input style="width:75px;" type="text" name="attr_attack_three" title="attack_three"/></span>
-				<span class="table-data"><input type="number" name="attr_tohit_three" title="tohit_three"/></span>
-				<span class="table-data"><button type='roll' value='@{character_name} attacks @{target|foe|character_name} with @{attack_three} and hits [[1d20<?{Combat Target|@{tohit_three}}]] times!' name='roll_AttackThree'></button>
-				<span class="table-data"><input style="width:100px;" type="text" name="attr_damage_three" title="damage_three"/></span>
-				<span class="table-data"><button type='roll' value='@{character_name} does [[@{damage_three}+?{Damage Modification|0}]] of @{damagetype_three}. Does it cause knockback? @{knockback_three}' name='roll_DamageThree'></button>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input style="width:100px;" type="text" name="attr_damagetype_three" title="damagetype_three"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input style="width:25px;" type="text" name="attr_knockback_three" title="knockback_three"/></span>
+			<div class="table">
+				<div class="table-row">
+					<span class="table-data"><b>INITIATIVE:</b></span>
+					<span class="table-data"><input style="width:50px;" type="text" name="attr_initiative_score" title="initiative_score" /></span>
+					<span class="table-data"><button type='roll' value='@{selected|token_name} [[ @{initiative_score} &{tracker:-}]]' name='roll_Initiative'></button>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>MOVEMENT: Ground </b></span>
+					<span class="table-data"><input  class="sheet-number-text" type="text" name="attr_movement_one" title="movement_one" value="round((@{strength_score}+@{endurance_score}+@{agility_score})/3)" disabled/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input style="width:150px;" type="text" name="attr_movement_two" title="movement_two"/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input style="width:150px;" type="text" name="attr_movement_three" title="movement_three"/></span>
+				</div>
 			</div>
-		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><b>DEFENSES:</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>Physical Defense:</b></span>
-				<span class="table-data"><input type="number" name="attr_physical_def" title="physical_def" value="(@{agility_save}+@{physical_mod}-10)" disabled/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>Physical Def Mod:</b></span>
-				<span class="table-data"><input type="number" name="attr_physical_mod" title="physical_mod" value="0"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>Mental Defense:</b></span>
-				<span class="table-data"><input type="number" name="attr_mental_def" title="mental_def" value="(@{intelligence_save}+@{mental_mod}-10)" disabled/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Mental Def Mod:</b></span>
-				<span class="table-data"><input type="number" name="attr_mental_mod" title="mental_mod" value="0"/></span>
+			<div class="table">
+				<div class="table-row">
+					<span class="table-data"><b>POWER: (</b></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input style="width:40px;" type="text" name="attr_power_score" title="power_score"/></span>
+					<span class="table-data"><b>/</b></span>
+					<span class="table-data"><input style="width:40px;" type="text" name="attr_power_score_max" title="power_score_max" /></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>):</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input style="width:500px;" type="text" name="attr_power_notes" title="power_notes"/></span>
+				</div>
 			</div>
-		</div>
-	</div>
-	<div class="section-details" style="border-style:solid;border-width:2px;">
-    	<div class="table">
-			<div class="table-row">
-			    <span class="table-data"><b>Pwr Lvl:</b></span>
-			    <span class="table-data">&emsp;</span>
-				<span class="table-data"><b>EXPERIENCE</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>PROTECTION:</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>Kinetic</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>Energy</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>Bio</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Entropy</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>Psychic</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>Other</b></span>
+			<div class="table">
+				<div class="table-row">
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>HITS: (</b></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input style="width:40px;" type="text" name="attr_hits_score" title="hits_score"/></span>
+					<span class="table-data"><b>/</b></span>
+					<span class="table-data"><input style="width:40px;" type="text" name="attr_hits_score_max" title="hits_score_max"/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>):</b></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input style="width:400px;" type="text" name="attr_hits_notes" title="hits_notes"/></span>
+					<span class="table-data"><b>HEALING:</b></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input style="width:50px;" type="text" name="attr_healing_rate" title="healing_rate"/></span>
+				</div>
 			</div>
-		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><input style="width:50px;" type="number" name="attr_power-level" title="power-level" value="(@{abilitycp_total}+@{strength_cost}+@{endurance_cost}+@{agility_cost}+@{intelligence_cost}+@{cool_cost} )" disabled/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>Base:</b></span>
-				<span class="table-data"><input style="width:50px;" type="number" name="attr_exp_base" title="exp_base"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input style="width:100px;" type="text" name="attr_protection_one" title="protection_one"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_kenetic_one" title="kenetic_one"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_energy_one" title="energy_one"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_bio_one" title="bio_one"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_entropy_one" title="entropy_one"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_psychic_one" title="psychic_one"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_other_one" title="other_one"/></span>
-			</div>
-		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data">&emsp;</span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>Earned:</b></span>
-				<span class="table-data"><input style="width:50px;" type="number" name="attr_exp_earned" title="exp_earned"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input style="width:100px;" type="text" name="attr_protection_two" title="protection_two"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_kenetic_two" title="kenetic_two"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_energy_two" title="energy_two"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_bio_two" title="bio_two"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_entropy_two" title="entropy_two"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_psychic_two" title="psychic_two"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_other_two" title="other_two"/></span>
-			</div>
-		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data">&emsp;</span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>Total:</b></span>
-				<span class="table-data"><input style="width:50px;" type="number" name="attr_exp_total" title="exp_total" value="(@{exp_earned}+@{exp_base})" disabled/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input style="width:100px;" type="text" name="attr_protection_three" title="protection_three"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_kenetic_three" title="kenetic_three"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_energy_three" title="energy_three"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_bio_three" title="bio_three"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_entropy_three" title="entropy_three"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_psychic_three" title="psychic_three"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input type="number" name="attr_other_three" title="other_three"/></span>
-			</div>
-		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><b>INITIATIVE:</b></span>
-				<span class="table-data"><input style="width:50px;" type="text" name="attr_initiative_score" title="initiative_score" /></span>
-				<span class="table-data"><button type='roll' value='@{selected|token_name} [[ @{initiative_score} &{tracker:-}]]' name='roll_Initiative'></button>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>MOVEMENT: Ground </b></span>
-				<span class="table-data"><input type="number" name="attr_movement_one" title="movement_one" value="round((@{strength_score}+@{endurance_score}+@{agility_score})/3)" disabled/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input style="width:150px;" type="text" name="attr_movement_two" title="movement_two"/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input style="width:150px;" type="text" name="attr_movement_three" title="movement_three"/></span>
-			</div>
-		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><b>POWER: (</b></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input style="width:40px;" type="text" name="attr_power_score" title="power_score"/></span>
-				<span class="table-data"><b>/</b></span>
-				<span class="table-data"><input style="width:40px;" type="text" name="attr_power_score_max" title="power_score_max" /></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>):</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input style="width:500px;" type="text" name="attr_power_notes" title="power_notes"/></span>
-			</div>
-		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>HITS: (</b></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input style="width:40px;" type="text" name="attr_hits_score" title="hits_score"/></span>
-				<span class="table-data"><b>/</b></span>
-				<span class="table-data"><input style="width:40px;" type="text" name="attr_hits_score_max" title="hits_score_max"/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>):</b></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><input style="width:400px;" type="text" name="attr_hits_notes" title="hits_notes"/></span>
-				<span class="table-data"><b>HEALING:</b></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input style="width:50px;" type="text" name="attr_healing_rate" title="healing_rate"/></span>
-			</div>
-		</div>
-		<div class="table">
-			<div class="table-row">
-				<span class="table-data"><b>CAPS:</b></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>BCs:</b></span>
-				<span class="table-data"><input type="number" name="attr_bc_score" title="bc_score" value="floor((@{exp_total}/5)+10)" disabled/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Abilty:</b></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input type="number" name="attr_abilty_score" title="ability_score" value="floor(@{exp_total}/5)" disabled/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Dmg:</b></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><input type="number" name="attr_dmg_score" title="dmg_score" value="floor((@{exp_total}/12.5)+3)" disabled/></span>
-				<span class="table-data">&emsp;</span>
-				<span class="table-data"><b>GEAR:</b></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Break:</b></span>
-				<span class="table-data"><input type="number" name="attr_break_score" title="break_score" value="round((@{exp_total}/25)+5)" disabled/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Take:</b></span>
-				<span class="table-data"><input type="number" name="attr_take_score" title="take_score" value="round((@{exp_total}/25)+6)" disabled/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>Disarm:</b></span>
-				<span class="table-data"><input type="number" name="attr_disarm_score" title="disarm_score" value="round((@{exp_total}/25)+3)" disabled/></span>
-				<span class="table-data">&nbsp;</span>
-				<span class="table-data"><b>BC:</b></span>
-				<span class="table-data"><input type="number" name="attr_bcfinal_score" title="bcfinal_score" value="round((@{exp_total}/15)+6)" disabled/></span>
+			<div class="table">
+				<div class="table-row">
+					<span class="table-data"><b>CAPS:</b></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>BCs:</b></span>
+					<span class="table-data"><input type="number" name="attr_bc_score" title="bc_score" value="floor((@{exp_total}/5)+10)" disabled/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>Abilty:</b></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input type="number" name="attr_abilty_score" title="ability_score" value="floor(@{exp_total}/5)" disabled/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>Dmg:</b></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><input type="number" name="attr_dmg_score" title="dmg_score" value="floor((@{exp_total}/12.5)+3)" disabled/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><b>GEAR:</b></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>Break:</b></span>
+					<span class="table-data"><input type="number" name="attr_break_score" title="break_score" value="round((@{exp_total}/25)+5)" disabled/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>Take:</b></span>
+					<span class="table-data"><input type="number" name="attr_take_score" title="take_score" value="round((@{exp_total}/25)+6)" disabled/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>Disarm:</b></span>
+					<span class="table-data"><input type="number" name="attr_disarm_score" title="disarm_score" value="round((@{exp_total}/25)+3)" disabled/></span>
+					<span class="table-data">&nbsp;</span>
+					<span class="table-data"><b>BC:</b></span>
+					<span class="table-data"><input type="number" name="attr_bcfinal_score" title="bcfinal_score" value="round((@{exp_total}/15)+6)" disabled/></span>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
+<div class="vehicle">
+	vehicle
+</div>
+<div class="config">
+	config
+</div>
 <rolltemplate class="sheet-rolltemplate-powerdesc">
     <div class="container">
 		<div class="header">Ability Description</div>
@@ -440,6 +495,45 @@
 
 
 <script type="text/worker">
+	/* ===== characteristics table =====
+	var stat-table = [
+		{min: 0, max: 0, carry: 8, hth_init: "d2-1", save: 6, hits-st: -3, hits-en: -5, hits-ag: -2, hits-cl: -1, heal: .2},
+		{min: 1, max: 1, carry: 10, hth_init: "d2-1", save: 7, hits-st: -3, hits-en: -5, hits-ag: -2, hits-cl: -1, heal: .3},
+		{min: 2, max: 2, carry: 12, hth_init: "d2-1", save: 7, hits-st: -3, hits-en: -5, hits-ag: -2, hits-cl: -1, heal: .3},
+		{min: 3, max: 5, carry: 15, hth_init: "d2", save: 8, hits-st: -2, hits-en: -3, hits-ag: -1, hits-cl: -0, heal: .5},
+		{min: 6, max: 8, carry: 30, hth_init: "d3", save: 9,  hits-st: 0, hits-en: -1, hits-ag: 0, hits-cl: 1, heal: .8},
+		{min: 9, max: 11, carry: 60, hth_init: "d4", save: 10, hits-st: 1, hits-en: 1, hits-ag: 1, hits-cl: 1, heal: 1},
+		{min: 12, max: 14, carry: 120, hth_init: "d6", save: 11, hits-st: 3, hits-en: 3, hits-ag: 2, hits-cl: 2, heal: 1.6},
+		{min: 15, max: 17, carry: 240, hth_init: "d6+1", save: 11, hits-st: 5, hits-en: 6, hits-ag: 3, hits-cl: 2, heal: 2.2},
+		{min: 18, max: 20, carry: 480, hth_init: "d8+1", save: 12, hits-st: 6, hits-en: 8, hits-ag: 5, hits-cl: 3, heal: 2.8},
+		{min: 21, max: 23, carry: 960, hth_init: "d10+1", save: 12, hits-st: 8, hits-en: 10, hits-ag: 6, hits-cl: 3, heal: 3.4},
+		{min: 24, max: 26, carry: 1920, hth_init: "2d6", save: 13, hits-st: 10, hits-en: 13, hits-ag: 7, hits-cl: 5, heal: 3.9},
+		{min: 27, max: 29, carry: 3840, hth_init: "d6+d8", save: 13, hits-st: 12, hits-en: 15, hits-ag: 8, hits-cl: 5, heal: 4.5},
+		{min: 30, max: 32, carry: 7680, hth_init: "2d8", save: 14, hits-st: 14, hits-en: 17, hits-ag: 9, hits-cl: 5, heal: 5.1},
+		{min: 33, max: 35, carry: 15360, hth_init: "d8+d10", save: 14, hits-st: 16, hits-en: 20, hits-ag: 10, hits-cl: 6, heal: 5.7},
+		{min: 36, max: 38, carry: 30720, hth_init: "2d10", save: 15, hits-st: 17, hits-en: 22, hits-ag: 12, hits-cl: 6, heal: 6.3},
+		{min: 39, max: 41, carry: 61440, hth_init: "d10+d12", save: 15, hits-st: 19, hits-en: 25, hits-ag: 13, hits-cl: 7, heal: 6.9},
+		{min: 42, max: 44, carry: 122880, hth_init: "2d12", save: 16, hits-st: 21, hits-en: 27, hits-ag: 14, hits-cl: 7, heal: 7.5},
+		{min: 45, max: 47, carry: 245760, hth_init: "3d8", save: 16, hits-st: 23, hits-en: 29, hits-ag: 15, hits-cl: 8, heal: 8.1},
+		{min: 48, max: 50, carry: 491520, hth_init: "2d8+d10", save: 17, hits-st: 25, hits-en: 32, hits-ag: 16, hits-cl: 9, heal: 8.7},
+		{min: 51, max: 53, carry: 983040, hth_init: "d8+2d10", save: 17, hits-st: 27, hits-en: 34, hits-ag: 17, hits-cl: 9, heal: 9.2},
+		{min: 54, max: 56, carry: 1966080, hth_init: "3d10", save: 18, hits-st: 28, hits-en: 36, hits-ag: 19, hits-cl: 10, heal: 9.8},
+		{min: 57, max: 59, carry: 3932160, hth_init: "2d10+d12", save: 18, hits-st: 30, hits-en: 39, hits-ag: 20, hits-cl: 10, heal: 10.4},
+		{min: 60, max: 62, carry: 7864320, hth_init: "d10+2d12", save: 19, hits-st: 32, hits-en: 41, hits-ag: 21, hits-cl: 11, heal: 11},
+		{min: 63, max: 65, carry: 15728640, hth_init: "3d12", save: 19, hits-st: 34, hits-en: 43, hits-ag: 22, hits-cl: 12, heal: 11.6},
+		{min: 66, max: 68, carry: 31457280, hth_init: "3d12+1", save: 20, hits-st: 36, hits-en: 46, hits-ag: 23, hits-cl: 12, heal: 12.2},
+		{min: 69, max: 71, carry: 62914560, hth_init: "3d12+2", save: 20, hits-st: 38, hits-en: 48, hits-ag: 25, hits-cl: 13, heal: 12.8},
+		{min: 72, max: 74, carry: 125829120, hth_init: "4d10", save: 21, hits-st: 39, hits-en: 50, hits-ag: 26, hits-cl: 13, heal: 13.4},
+		{min: 75, max: 77, carry: 251658240, hth_init: "3d10+d12", save: 21, hits-st: 41, hits-en: 53, hits-ag: 27, hits-cl: 14, heal: 14},
+		{min: 78, max: 80, carry: 503316480, hth_init: "2d10+2d12", save: 22, hits-st: 43, hits-en: 55, hits-ag: 28, hits-cl: 15, heal: 14.5},
+		{min: 81, max: 83, carry: 1006632960, hth_init: "d10+3d12", save: 22, hits-st: 45, hits-en: 58, hits-ag: 29, hits-cl: 15, heal: 15.1},
+		{min: 84, max: 86, carry: 2013265920, hth_init: "4d12", save: 23, hits-st: 47, hits-en: 60, hits-ag: 30, hits-cl: 16, heal: 15.7},
+		{min: 87, max: 89, carry: 4026531840, hth_init: "4d12+1", save: 23, hits-st: 48, hits-en: 62, hits-ag: 32, hits-cl: 16, heal: 16.3},
+		{min: 90, max: 92, carry: 8053063680, hth_init: "5d10", save: 24, hits-st: 50, hits-en: 65, hits-ag: 33, hits-cl: 17, heal: 16.9},
+		{min: 93, max: 95, carry: 16106127360, hth_init: "4d10+d12", save: 24, hits-st: 52, hits-en: 67, hits-ag: 34, hits-cl: 17, heal: 17.5},
+		{min: 96, max: 98, carry: 32212254720, hth_init: "3d10+2d12", save: 25, hits-st: 54, hits-en: 69, hits-ag: 35, hits-cl: 18, heal: 18.1}
+	];
+	
 	/* ===== PARAMETERS ==========
 	destination = the name of the attribute that stores the total quantity
 	section = name of repeating fieldset, without the repeating_
@@ -463,8 +557,19 @@
 	};
 
 	on('change:repeating_powers remove:repeating_powers', function() {
-		repeatingSum("abilitycp_total","powers","ability_cost");
+		repeatingSum("abilityip_total","powers","ip_cost");
+		repeatingSum()
 	});
+
+	const buttonlist = ["character","vehicle","config"];
+    buttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                sheetTab: button
+            });
+        });
+    });
+    
 
 
 </script>
