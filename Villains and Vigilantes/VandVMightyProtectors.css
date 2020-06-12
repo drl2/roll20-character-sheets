@@ -1,29 +1,41 @@
-/* main selector tabs */
-.sheet-character,
-.sheet-config,
-.sheet-vehicle {
-	display: none;
+div.sheet-tab-content {
+  display: none;
 }
-
-/* show the selected tab */
-.sheet-tabstoggle[value="character"] ~ div.sheet-character,
-.sheet-tabstoggle[value="config"] ~ div.sheet-config,
-.sheet-tabstoggle[value="vehicle"] ~ div.sheet-vehicle {
+input.sheet-char-tab:checked ~ div.sheet-char-tab,
+input.sheet-veh-tab:checked ~ div.sheet-veh-tab {
   display: block;
 }
-.sheet-maintab-button {
+.charsheet input.sheet-tab {
+  width: 80px;
+  position: relative;
+  opacity: 0;
+  z-index: 9999;
+}
+.charsheet span.sheet-tab {
+  /* width and margin-left must be equal the width in sheet-tab above */
+  width: 80px; 
+  margin-left: -80px;
+  text-align: center;  
+  display: inline-block;  
+  border-radius: 4px;
+  border: 1px solid;
   background-color: #ede695;
-  border: 1px solid black;
-  padding: 2px;
 }
-.sheet-tab-group {
-  margin-top: 0px;
-  float: right;
+input.sheet-tab[type="radio"]:checked + span.sheet-tab {
+  font-weight: bold;
 }
-.sheet-character, .sheet-config, .sheet-vehicle {
-  margin-top: 28px;
+.sheet-tab-spacer {
+  width: 630px;
+  display: inline-block;
+}
+.sheet-char-tab {
+  margin-top: 4px;
 }
 
+.sheet-section-details {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
 /* 
 *sheet layout 
 */
@@ -55,7 +67,7 @@
 .sheet-main-grid-container .sheet-powers {
   grid-area: powers;
 }
-.sheet-main-grid-container .shee-stats {
+.sheet-main-grid-container .sheet-stats {
   grid-area: stats;
 }
 .sheet-main-grid-container .sheet-attacks {
@@ -107,10 +119,149 @@
   border: 1px dashed black;
   margin-bottom: 3px;
 }
+.sheet-statmod-container {
+  display: none;
+}
+.sheet-bc-grid-container {
+  display: grid;
+  grid-gap: 4px;
+  grid-template-columns: 40px 30px 45px 41px 20px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "cost-col bc-col score-col save-col roll-col"
+}
+.sheet-bc-grid-container .sheet-cost-col {
+  grid-area: cost-col;
+}
+.sheet-bc-grid-container .sheet-bc-col {
+  grid-area: bc-col;
+}
+.sheet-bc-grid-container .sheet-score-col {
+  grid-area: score-col;
+}
+.sheet-bc-grid-container .sheet-save-col {
+  grid-area: save-col;
+}
+.sheet-bc-label {
+  font-weight: bold;
+  width: 30px;
+  text-align: right;
+  padding-top: 3px;
+}
+.sheet-bc-number-field {
+  width: 40px;
+  display: inline-block;
+}
+.sheet-bc-pad {
+  padding-bottom: 4px;
+}
+
+.sheet-attack-container {
+  font-weight: bold;
+  display: grid;
+  grid-gap: 4px;
+  grid-template-columns: 100px 50px 75px 135px 100px 80px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "attack-col tohit-attrib-col tohit-col dmg-col dmgtype-col kb-col"
+}
+.sheet-attack-container .sheet-attack-col {
+  grid-area: attack-col;
+}
+.sheet-attack-container .sheet-tohit-attrib-col {
+  grid-area: tohit-attrib-col;
+}
+.sheet-attack-container .sheet-tohit-col {
+  grid-area: tohit-col;
+}
+.sheet-attack-container .sheet-dmg-col {
+  grid-area: dmg-col;
+}
+.sheet-attack-container .sheet-dmgtype-col {
+  grid-area: dmgtype-col;
+}
+.sheet-attack-container .sheet-kb-col {
+  grid-area: kb-col;
+}
+
+.sheet-protection-container {
+  font-weight: bold;
+  display: grid;
+  grid-gap: 4px;
+  grid-template-columns: 100px 50px 50px 50px 50px 50px 50px 100px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "protect-col kinetic-col energy-col bio-col entropy-col psychic-col other-col other-desc-col"
+}
+.sheet-protection-container .sheet-protect-col {
+  grid-area: protect-col;
+}
+.sheet-protection-container .sheet-kinetic-col {
+  grid-area: kinetic-col;
+}
+.sheet-protection-container .sheet-energy-col {
+  grid-area: energy-col;
+}
+.sheet-protection-container .sheet-bio-col {
+  grid-area: bio-col;
+}
+.sheet-protection-container .sheet-entropy-col {
+  grid-area: entropy-col;
+}
+.sheet-protection-container .sheet-psychic-col {
+  grid-area: psychic-col;
+}
+.sheet-protection-container .sheet-other-col {
+  grid-area: other-col;
+}
+.sheet-protection-container .sheet-other-desc-col {
+  grid-area: other-desc-col;
+}
+
+.sheet-experience-container {
+  font-weight: bold;
+  display: grid;
+  grid-gap: 4px;
+  grid-template-columns: 50px 75px 41px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "exp-top-label exp-top-label exp-tot-label"
+    "main-exp-col exp-label-col exp-total-col"
+}
+.sheet-experience-container .sheet-main-exp-col {
+  grid-area: main-exp-col;
+}
+.sheet-experience-container .sheet-exp-label-col {
+  grid-area: exp-label-col;
+}
+.sheet-experience-container .sheet-exp-total-col {
+  grid-area: exp-total-col;
+}
+.sheet-experience-container .sheet-exp-top-label {
+  grid-area: exp-top-label;
+}
+.sheet-experience-container .sheet-exp-tot-label {
+  grid-area: exp-tot-label;
+}
+.sheet-exp-label {
+  font-weight: bold;
+  width: 70px;
+  text-align: right;
+  padding-top: 3px;
+}
+.sheet-exp-number input[type="number"] {
+  width: 50px;
+}
 
 /*
  *  modified input/label formats
  */
+.sheet-short-select {
+  width: 50px;
+}
+.sheet-tiny-select {
+  width: 40px;
+}
 .sheet-short-label {
   width: 75px;
 }
@@ -138,7 +289,7 @@
   padding-top: 3px;
 }
 input.sheet-power-desc{
-  width: 675px;
+  width: 645px;
 }
 .sheet-power-desc {
   width: 675px;
@@ -185,6 +336,27 @@ button[type="action"].sheet-dropdown-toggle{
 input.sheet-stats-toggle:not(:checked) ~ div.sheet-stat-mods {
     display: none;
 }
+div.sheet-statmod-container {
+  display: none;
+}
+
+.charsheet input.sheet-stats-toggle {
+  width: 20px;
+  position: relative;
+  opacity: 0;
+  z-index: 9999;
+}
+.charsheet span.sheet-stats-toggle {
+  /* width and margin-left must be equal the width in sheet-tab above */
+  width: 20px; 
+  margin-left: -20px;
+  text-align: center;  
+  display: inline-block;  
+}
+input.sheet-stats-toggle:checked ~ div.sheet-statmod-container {
+  display: block;
+}
+
 /*
  * Custom Roll templates
  */
@@ -229,5 +401,7 @@ input.sheet-stats-toggle:not(:checked) ~ div.sheet-stat-mods {
     margin: 0px;
   }
 
- 
+ .sheet-pictos-button {
+   font-family: 'Pictos';
+ }
    
