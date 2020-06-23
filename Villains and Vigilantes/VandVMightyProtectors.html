@@ -31,7 +31,7 @@
 				<div class="info_label personal-info-label short-label">Height</div>
 				<div class="info_field"><input class="short-field" type="text" name="attr_height" title="height"/></div>
 				<div class="info_label personal-info-label short-label">Weight</div>
-				<div class="info_field"><input class="short-field" type="text" name="attr_weight" title="weight"/></div>
+				<div class="info_field"><input class="short-field" type="text" name="attr_weight" title="weight"/>lbs</div>
 			</div>
 		</div>
 		<div class="social">
@@ -175,7 +175,7 @@
 			<div class="bc-grid-container">
 				<div class="cost-col"><input type="number" name="attr_strength_cost" title="strength_cost" value="0"/></div>
 				<div class="bc-col bc-label">ST</div>
-				<div class="score-col"><input type="text" name="attr_strength_score" title="strength_score" class="bc-number-field" disabled value="(@{strength_cost}+@{st_adj_total})"/></div>
+				<div class="score-col"><input type="text" name="attr_strength_score" title="strength_score" class="bc-number-field" readonly value="(@{strength_cost}+@{st_adj_total})"/></div>
 				<div class="save-col bc-label">SAVE</div>
 				<div class="roll-col">&nbsp;</div>
 			</div>
@@ -183,9 +183,9 @@
 			<div class="bc-grid-container">
 				<div class="cost-col"><input type="number" name="attr_endurance_cost" title="endurance_cost" value="0"/></div>
 				<div class="bc-col bc-label">EN</div>
-				<div class="score-col"><input type="text" name="attr_endurance_score" title="endurance_score" class="bc-number-field" disabled value="(@{endurance_cost}+@{en_adj_total})"/></div>
+				<div class="score-col"><input type="text" name="attr_endurance_score" title="endurance_score" class="bc-number-field" readonly value="(@{endurance_cost}+@{en_adj_total})"/></div>
 				<div class="save-col">
-					<input type="text" name="attr_endurance_save" title="endurance_save" class="bc-number-field" disabled value="@{hid_en_save}"/><input type="hidden" name="attr_hid_en_save" title="hid_en_save">
+					<input type="text" name="attr_endurance_save" title="endurance_save" class="bc-number-field" readonly />		
 				</div>
 				<div class="roll-col">
 					<button type='roll' value='@{character_name} rolls a save against Endurance with [[1d20<?{Endurance Target|@{endurance_save}}]] successes!' name='roll_Endurance_Save'></button>
@@ -194,9 +194,9 @@
 			<div class="bc-grid-container">
 				<div class="cost-col"><input type="number" name="attr_agility_cost" title="agility_cost" value="0"/></div>
 				<div class="bc-col bc-label">AG</div>
-				<div class="score-col"><input type="text" name="attr_agility_score" title="agility_score" class="bc-number-field" disabled value="(@{agility_cost}+@{ag_adj_total})"/></div>
+				<div class="score-col"><input type="text" name="attr_agility_score" title="agility_score" class="bc-number-field" readonly value="(@{agility_cost}+@{ag_adj_total})"/></div>
 				<div class="save-col">
-					<input type="text" name="attr_agility_save" title="agility_save" class="bc-number-field" disabled value="@{hid_ag_save}"/><input type="hidden" name="attr_hid_ag_save" title="hid_ag_save">
+					<input type="text" name="attr_agility_save" title="agility_save" class="bc-number-field" readonly />
 				</div>
 				<div class="roll-col">
 					<button type='roll' value='@{character_name} rolls a save against Agility with [[1d20<?{Agility Target|@{agility_save}}]] successes!' name='roll_Agility_Save'></button>
@@ -205,9 +205,9 @@
 			<div class="bc-grid-container">
 				<div class="cost-col"><input type="number" name="attr_intelligence_cost" title="intelligence_cost" value="0"/></div>
 				<div class="bc-col bc-label">IN</div>
-				<div class="score-col"><input type="text" name="attr_intelligence_score" title="intelligence_score" class="bc-number-field" disabled value="(@{intelligence_cost}+@{in_adj_total})"/></div>
+				<div class="score-col"><input type="text" name="attr_intelligence_score" title="intelligence_score" class="bc-number-field" readonly value="(@{intelligence_cost}+@{in_adj_total})"/></div>
 				<div class="save-col">
-					<input type="text" name="attr_intelligence_save" title="intelligence_save" class="bc-number-field" disabled value="@{hid_in_save}"/><input type="hidden" name="attr_hid_in_save" title="hid_in_save">
+					<input type="text" name="attr_intelligence_save" title="intelligence_save" class="bc-number-field" readonly value="@{hid_in_save}"/><input type="hidden" name="attr_hid_in_save" title="hid_in_save">
 				</div>
 				<div class="roll-col">
 					<button type='roll' value='@{character_name} rolls a save against Intelligence with [[1d20<?{Intelligence Target|@{intelligence_save}}]] successes!' name='roll_Intelligence_Save'></button>
@@ -216,9 +216,9 @@
 			<div class="bc-grid-container">
 				<div class="cost-col"><input type="number" name="attr_cool_cost" title="cool_cost" value="0"/></div>
 				<div class="bc-col bc-label">CL</div>
-				<div class="score-col"><input type="text" name="attr_cool_score" title="cool_score" class="bc-number-field" disabled value="(@{cool_cost}+@{cl_adj_total})"/></div>
+				<div class="score-col"><input type="text" name="attr_cool_score" title="cool_score" class="bc-number-field" readonly value="(@{cool_cost}+@{cl_adj_total})"/></div>
 				<div class="save-col">
-					<input type="text" name="attr_cool_save" title="cool_save" class="bc-number-field" disabled value="@{hid_cl_save}"/><input type="hidden" name="attr_hid_cl_save" title="hid_cl_save">
+					<input type="text" name="attr_cool_save" title="cool_save" class="bc-number-field" readonly value="@{hid_cl_save}"/><input type="hidden" name="attr_hid_cl_save" title="hid_cl_save">
 				</div>
 				<div class="roll-col">
 					<button type='roll' value='@{character_name} rolls a save against Cool with [[1d20<?{Cool Target|@{cool_save}}]] successes!' name='roll_Cool_Save'></button>
@@ -232,7 +232,7 @@
 				<div class="exp-tot-label">Exp</div>
 			</div>
 			<div class="experience-container">
-				<div class="main-exp-col"><input  class="number-text" type="text" name="attr_power-level" title="power-level" value="(@{abilitycp_total}+@{strength_cost}+@{endurance_cost}+@{agility_cost}+@{intelligence_cost}+@{cool_cost} )" disabled/></div>
+				<div class="main-exp-col"><input  class="number-text" type="text" name="attr_power_level" title="power_level" readonly/></div>
 				<div class="exp-label-col exp-label">Base</div>
 				<div class="exp-total-col exp-number"><input type="number" name="attr_exp_base" title="exp_base" /></div>
 			</div>
@@ -315,10 +315,10 @@
 			<div class="table">
 				<div class="table-row">
 					<span class="table-data">CARRYING CAPACITY:</span>
-					<span class="table-data"><input class="med-field" type="text" name="attr_carry_capacity" title="carry_capacity" disabled value="@{hid_carry}"/><input type="hidden" name="attr_hid_carry" title="hid_carry"></span>
+					<span class="table-data"><input class="med-field" type="text" name="attr_carry_capacity" title="carry_capacity" readonly /></span>
 					<span class="table-data">&emsp;</span>
 					<span class="table-data">BASE HTH DAMAGE:</span>
-					<span class="table-data"><input class="med-field" type="text" name="attr_hth_damage" title="hth_damage"/></span>
+					<span class="table-data"><input class="med-field" type="text" name="attr_hth_damage" title="hth_damage" readonly /></span>
 					<span class="table-data">&emsp;</span>
 					<span class="table-data">DEFENSES:</span>
 					<span class="table-data">&emsp;</span>
@@ -333,13 +333,13 @@
 		<div class="section-details">
 			<div class="table">
 				<div class="table-row">
-					<span class="table-data">INITIATIVE <input class="short-field" type="text" name="attr_initiative_score" title="initiative_score" /><button type='roll' value='@{selected|token_name} [[ @{initiative_score} &{tracker:-}]]' name='roll_Initiative'></button>
+					<span class="table-data">INITIATIVE <input class="short-field" type="text" name="attr_initiative_score" title="initiative_score" readonly /><button type='roll' value='@{selected|token_name} [[ @{initiative_score} &{tracker:-}]]' name='roll_Initiative'></button>
 					<span class="table-data">&emsp;</span>
 					<span class="table-data">Mass <input class="short-field" type="text" name="attr_mass" title="mass"/><button type='roll' value='@{character_name} rolls mass scoring: [[@{mass}]]' name='roll_Mass'></button></span>
 					<span class="table-data">&emsp;</span>
 					<span class="table-data">Wealth <input class="short-field" type="text" name="attr_wealth" title="wealth"/><button type='roll' value='@{character_name} rolls a wealth check getting: [[@{wealth}]]' name='roll_Wealth'></button></span>
 					<span class="table-data">&emsp;</span>
-					<span class="table-data">Luck <input class="short-field" type="text" name="attr_luck" title="luck" value="10"/><button type='roll' value='@{character_name} makes a luck check with [[1d20<@{luck}]] successes' name='roll_Luck'></button></span>
+					<span class="table-data">Luck <input class="number-text" type="text" name="attr_luck" title="luck" value="10" readonly/><button type='roll' value='@{character_name} makes a luck check with [[1d20<@{luck}]] successes' name='roll_Luck'></button></span>
 					<span class="table-data">&emsp;</span>
 					<span class="table-data">Profile <input type="number" name="attr_profile" title="personal-info-label" value="1" step=".1"/></span>
 				</div>
@@ -348,22 +348,25 @@
 		<div class="section-details">
 			<div class="table">
 				<div class="table-row">
-					<span class="table-data">POWER: (<input class="number-text" type="text" name="attr_power_score" title="power_score"/>/<input class="number-text" type="text" name="attr_power_score_max" title="power_score_max" />)</span>
+					<span class="table-data">POWER: (<input class="number-text" type="text" name="attr_power_score" title="power_score"/>/<input class="number-text" type="text" name="attr_power_score_max" title="power_score_max" readonly />)</span>
 					<span class="table-data">&emsp;</span>
 					<span class="table-data">MOVEMENT: Ground</span>
-					<span class="table-data"><input  class="number-text" type="text" name="attr_movement_one" title="movement_one" value="round((@{strength_score}+@{endurance_score}+@{agility_score})/3)" disabled/></span>
+					<span class="table-data"><input  class="number-text" type="text" name="attr_movement_ground" title="movement_ground" value="round((@{strength_score}+@{endurance_score}+@{agility_score})/3)" disabled/></span>
 					<span class="table-data">&emsp;</span>
-					<span class="table-data"><input class="med-field" type="text" name="attr_movement_two" title="movement_two"/></span>
-					<span class="table-data"><input class="med-field" type="text" name="attr_movement_three" title="movement_three"/></span>
+					<span class="table-data">Leaping</span>
+					<span class="table-data"><input  class="number-text" type="text" name="attr_movement_leap" title="movement_leap" readonly/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data"><input class="med-field" type="text" name="attr_movement_three_name" title="movement_three_name"/></span>
+					<span class="table-data"><input class="short-field" type="text" name="attr_movement_three" title="movement_three"/></span>
 				</div>
 			</div>
 		</div>
 		<div class="section-details">
 			<div class="table">
 				<div class="table-row">
-					<span class="table-data">HITS: (<input class="sheet-number-text" type="text" name="attr_hits_score" title="hits_score"/>/<input class="sheet-number-text" type="text" name="attr_hits_score_max" title="hits_score_max"/>)</span>
+					<span class="table-data">HITS: (<input class="sheet-number-text" type="text" name="attr_hits_score" title="hits_score"/>/<input class="sheet-number-text" type="text" name="attr_hits_score_max" title="hits_score_max" readonly/>)</span>
 					<span class="table-data">&emsp;</span>
-					<span class="table-data">HEALING: <input class="sheet-number-text" type="text" name="attr_healing_rate" title="healing_rate"/></span>
+					<span class="table-data">HEALING: <input class="sheet-number-text" type="text" name="attr_healing_rate" title="healing_rate" readonly/></span>
 				</div>
 			</div>
 		</div>
@@ -458,38 +461,76 @@
 
 
 <script type="text/worker">
-
 	/* ===== PARAMETERS ==========
-	destination = the name of the attribute that stores the total quantity
-	section = name of repeating fieldset, without the repeating_
-	fields = the name of the attribute field to be summed
-		  can be a single attribute: 'weight'
-		  or an array of attributes: ['weight','number','equipped']
-	multiplier (optional) = a multiplier to the entire fieldset total. For instance, if summing coins of weight 0.02, might want to multiply the final total by 0.02.
+	destinations = the name of the attribute that stores the total quantity
+			can be a single attribute, or an array: ['total_cost', 'total_weight']
+			If more than one, the matching fields must be in the same order. 
+		section = name of repeating fieldset, without the repeating_
+		fields = the name of the attribute field to be summed
+			  destination and fields both can be a single attribute: 'weight'
+			  or an array of attributes: ['weight','number','equipped']
 	*/
-	const repeatingSum = (destination, section, fields, multiplier = 1) => {
-		if (!Array.isArray(fields)) fields = [fields];
+	const repeatingSum = (destinations, section, fields) => {
+		if (!Array.isArray(destinations)) destinations = [destinations.replace(/\s/g, '').split(',')];
+		if (!Array.isArray(fields)) fields = [fields.replace(/\s/g, '').split(',')];
 		getSectionIDs(`repeating_${section}`, idArray => {
-			const attrArray = idArray.reduce( (m,id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))],[]);
-			getAttrs(attrArray, v => {
-				console.log("===== values of v: "+ JSON.stringify(v) +" =====");
-					 // getValue: if not a number, returns 1 if it is 'on' (checkbox), otherwise returns 0..
-				const getValue = (section, id,field) => parseFloat(v[`repeating_${section}_${id}_${field}`]) || (v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : 0); 
-				const sumTotal = idArray.reduce((total, id) => total + fields.reduce((subtotal,field) => subtotal * getValue(section, id,field),1),0);
-				setAttrs({[destination]: sumTotal * multiplier});    
-			});
-		});
+			const attrArray = idArray.reduce((m, id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))], []);
+			getAttrs([...attrArray], v => {
+				const getValue = (section, id, field) => v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : parseFloat(v[`repeating_${section}_${id}_${field}`]) || 0;
+				const commonMultipliers = (fields.length <= destinations.length) ? [] : fields.splice(destinations.length, fields.length - destinations.length);
+				const output = {};
+				destinations.forEach((destination, index) => {
+					output[destination] = idArray.reduce((total, id) => total + getValue(section, id, fields[index]) * commonMultipliers.reduce((subtotal, mult) => subtotal * getValue(section, id, mult), 1), 0);
+				});
+				setAttrs(output);
+			}); 
+		}); 
 	};
 
-	on('change:repeating_powers remove:repeating_powers', function() {
-		repeatingSum("abilityip_total","powers","ip_cost");
-		repeatingSum("st_adj_total", "powers", "st_adj");
-		repeatingSum("en_adj_total", "powers", "en_adj");
-		repeatingSum("ag_adj_total", "powers", "ag_adj");
-		repeatingSum("in_adj_total", "powers", "in_adj");
-		repeatingSum("cl_adj_total", "powers", "cl_adj");
-		updateFromBCs();
-	});
+	function simplifyDice(rollText) {
+        const diceRE = /(?=[+-])/
+        let finalAdj = 0;
+        let dice = '';
+        let rollsByDie = [];
+        let rolls = rollText.split(diceRE);
+        let simplifiedRoll = '';
+
+        rolls.forEach(section => {
+            section = section.replace('+', '');
+            dice = section.split('d');
+            
+            if (dice.length == 1) {
+                finalAdj = finalAdj + parseInt(dice[0],10);
+            } else {
+                let idx = rollsByDie.findIndex((item) => item.dieSize === dice[1]);
+                if (idx == -1) {
+                    rollsByDie.push({dieCount: parseInt(dice[0],10) || 1, dieSize: dice[1]});
+                } else {
+                    rollsByDie[idx].dieCount += (parseInt(dice[0],10) || 1);
+                }
+            }
+        });
+
+        // sort it by die size
+        rollsByDie.sort(function(a,b) {
+            return parseInt(a.dieSize, 10) - parseInt(b.dieSize, 10);
+        })
+
+        rollsByDie.forEach(dieRoll => {
+            if (dieRoll.dieCount != 0)
+            {
+                simplifiedRoll += ((simplifiedRoll.length > 0 && dieRoll.dieCount > 0) ? '+' : '') + dieRoll.dieCount + 'd' + dieRoll.dieSize;
+            }
+        })
+        if (finalAdj != 0)
+        {
+            simplifiedRoll += ((finalAdj > 0) ? '+' : '') + finalAdj;
+        }
+
+        return simplifiedRoll;
+	}
+	
+	
 
 	function updateFromBCs() {
 		getAttrs([
@@ -497,7 +538,18 @@
 			"endurance_score",
 			"agility_score",
 			"intelligence_score",
-			"cool_score"
+			"cool_score",
+			"init_adj_total",
+			"hp_adj_total",
+			"pwr_adj_total",
+			"luck_adj_total",
+			"weight",
+			"ability_cp_total",
+			"strength_cost",
+			"endurance_cost",
+			"agility_cost",
+			"intelligence_cost",
+			"cool_cost"
 		], function(v) {
 			let statTable = [
 				{min: 0, max: 0, carry: 8, hth_init: 'd2-1', save: 6, hits_st: -3, hits_en: -5, hits_ag: -2, hits_cl: -1, heal: .2},
@@ -542,18 +594,57 @@
 			let agResult = statTable.filter(tableRow => (tableRow.min <= v.agility_score && tableRow.max >= v.agility_score));
 			let inResult = statTable.filter(tableRow => (tableRow.min <= v.intelligence_score && tableRow.max >= v.intelligence_score));
 			let clResult = statTable.filter(tableRow => (tableRow.min <= v.cool_score && tableRow.max >= v.cool_score));
+			let leap = (parseInt(v.weight,10) > 0) ? Math.floor(stResult[0].carry / parseInt(v.weight,10)) : '';
 
-			console.log('EN score ' + v.endurance_score + ' save ' + enResult[0].save);
+			console.log(v.ability_cp_total);
+			console.log(v.luck_adj_total);
 
 			setAttrs({
-				hid_carry: stResult[0].carry,
-				hid_en_save: enResult[0].save,
-				hid_ag_save: agResult[0].save,
-				hid_in_save: inResult[0].save,
-				hid_cl_save: clResult[0].save
+				carry_capacity: stResult[0].carry,
+				endurance_save: enResult[0].save,
+				agility_save: agResult[0].save,
+				intelligence_save: inResult[0].save,
+				cool_save: clResult[0].save,
+				hth_damage: stResult[0].hth_init,
+				initiative_score: simplifyDice(clResult[0].hth_init + '+' + v.init_adj_total),
+				luck: 10+(parseInt(v.luck_adj_total,10) || 0),
+				power_score_max: (parseInt(v.strength_score,10) || 0) + (parseInt(v.endurance_score,10) || 0) + (parseInt(v.agility_score,10) || 0) + (parseInt(v.intelligence_score,10) || 0) + (parseInt(v.pwr_adj_total,10) || 0),
+				hits_score_max: stResult[0].hits_st + enResult[0].hits_en + agResult[0].hits_ag + clResult[0].hits_cl + (parseInt(v.hp_adj_total,10) || 0),
+				movement_leap: leap,
+				healing_rate: enResult[0].heal,
+				power_level: (parseInt(v.ability_cp_total,10) || 0) + (parseInt(v.strength_cost,10) || 0) + (parseInt(v.agility_cost,10) || 0) + (parseInt(v.endurance_cost,10) || 0) + (parseInt(v.intelligence_cost,10) || 0) + (parseInt(v.cool_cost,10) || 0)
 			});
 		});
 	};
+
+	function calcRepeating() {
+		repeatingSum(["abilityip_total", "st_adj_total", "en_adj_total", "ag_adj_total", "in_adj_total", "cl_adj_total","init_adj_total", "pwr_adj_total", "hp_adj_total", "luck_adj_total", "ability_cp_total"],
+		"powers",
+		["ip_cost", "st_adj", "en_adj", "ag_adj", "in_adj", "cl_adj", "init_adj","pwr_adj", "hp_adj", "luck_adj", "ability_cost"]);
+	}
+
+	["strength",  "endurance",   "agility",  "intelligence",  "cool"].forEach(stat => {
+		let stat_cost = `${stat}_cost`, stat_adj = (stat == 'cool') ? `cl_adj_total` : `${stat.slice(0,2)}_adj_total`;
+		on(`change:${stat_cost} change:${stat_adj}`, function() {
+			calcRepeating();
+
+		  	getAttrs([stat_cost, stat_adj], function(v) {
+				let cost = +v[stat_cost] ||0;
+				let adj =  +v[stat_adj] ||0;
+				let score = cost + adj;
+				setAttrs({
+				[`${stat}_score`]: score
+				});
+			});
+
+			updateFromBCs();
+		});
+	});
+	
+	on('change:repeating_powers remove:repeating_powers change:weight', function() {
+		calcRepeating();
+		updateFromBCs();
+	});
 
 
 	const buttonlist = ["character","vehicle"];
@@ -564,7 +655,5 @@
             });
         });
     });
-    
-
 
 </script>
