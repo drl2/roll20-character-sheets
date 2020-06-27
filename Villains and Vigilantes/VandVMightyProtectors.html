@@ -1,7 +1,36 @@
 <div class="tab-spacer">&nbsp;</div>
-<input type="radio" name="attr_tab" class="tab char-tab" value="1" checked="checked" /> <span class="sheet-tab">Character</span>
-<input type="radio" name="attr_tab" class="tab veh-tab" value="2" /> <span class="sheet-tab">Vehicle</span>
+<input type="radio" name="attr_tab" class="tab notes-tab" value="1" checked /> <span class="tab">Notes</span>
+<input type="radio" name="attr_tab" class="tab char-tab" value="2" /> <span class="tab">Character</span>
+<input type="radio" name="attr_tab" class="tab veh-tab" value="3" /> <span class="tab">Vehicle</span>
 
+<div class="tab-content notes-tab">
+    	<label class="title">Overview (Last update 6/25/2020)</label>
+ 		<p>This character sheet was conceived as an update to the existing Mighty Protectors character sheet created by Paul M. several years ago.  Goals for its design include:</p>
+		<ul>
+			<li>Present a look & feel more like the official character sheet.</li>
+			<li>Convert limited multi-item lists (such as powers, attacks, etc) into repeating areas so players can configure as many or as few as needed.</li>
+			<li>Where possible, automate calculations related to ability scores, etc.</li>
+			<li>Simplify roll macros - avoid need for pop-ups, etc.  GMs & players who still want the more complex multi-step rolls can do so through macros; the intention is to set up a wiki page with some specific examples.</li>
+		</ul>
+		<p><b><i>This is a test version</i></b> and it isn't recommended to use it in any live games!  It's not finished, and its internal functioning is different enough from the old sheet that a signifgicant amount of information won't transfer over.  A migration mechanism is being considered for the future if it's found to be workable.</p>
+		<p>Pro Roll20 users who want to test it in a custom game can find the source at this Github address: <input type="text" style="width:550px;" readonly value="https://github.com/drl2/roll20-character-sheets/blob/mighty_protectors/Villains%20and%20Vigilantes/VandVMightyProtectors.html" /></p>
+		<br />
+		<p><b>To Do:</b></p>
+		<ul>
+			<li>Implement "To Hit" calculations in Attacks section.  These are complex because of the need to tie together multiple results from the Powers repeating section with the appropriate line in the Attacks section and adjust for which stat the attack is based on.</li>
+			<li>Fix the roll macros.  Yeah, still haven't gotten to that.</li>
+			<li>Finish the Vehicle tab - right now it's barely more than a placeholder.</li>
+			<li>Convert the Movement items into a repeater so players can add/remove as needed</li>
+		</ul>
+	
+		<label class="title">Version 1.9.0 (Released 6/25/2020)</label>
+		<ul>
+			<li>First public test release.  Do not use for real games!  Much is not implemented yet.</li>
+			<li>Most calculations on the character sheet are testable.  "To hit" scores not implemented yet.</li>
+			<li>Roll macros unchanged as yet from the original sheet so many won't work currently if they depend on specifically named fields.</li>
+			<li>Not much on the vehicle page yet.</li>
+		</ul>
+</div>
 
 
 <div class="tab-content char-tab overall-wrapper">
@@ -9,7 +38,7 @@
 		<div class="cultural">
 			<div class="personal-info-grid-container">
 				<div class="info_label personal-info-label">True ID</div>
-				<div class="info_field"><input type="text" name="attr_identity-name" title="identity-name"/></div>
+				<div class="info_field"><input type="text" name="attr_identity_name" title="identity_name"/></div>
 				<div class="info_label personal-info-label">Side</div>
 				<div class="info_field"><input type="text" name="attr_side" title="side" /></div>
 				<div class="info_label personal-info-label">Species</div>
@@ -43,7 +72,7 @@
 				<div class="info_label personal-info-label">Legal Status</div>
 				<div class="info_field"><input type="text" name="attr_legal_status" title="legal_status"/></div>
 				<div class="info_label personal-info-label">Sec. Clr.</div>
-				<div class="info_field"><input class="sheet-number-text" type="text" name="attr_security_clearance" title="security_clearance" value="round(@{intelligence_score} + @{cool_score} + (@{exp_earned}/5) -20)" disabled/></div>
+				<div class="info_field"><input class="sheet-number-text" type="text" name="attr_security_clearance" title="security_clearance" readonly/></div>
 			</div>
 		</div>
 		<div class="powers">
@@ -51,8 +80,8 @@
 			<div class="powers-grid-container">
 				<div class="cps">CPs:</div>
 				<div class="power-desc inventing">
-					INVENTING: <input class="sheet-number-text" type="text" name="attr_invention_points" title="invention_points" value="round(@{intelligence_score} / 2)" disabled/> 
-					Unspent <input class="sheet-number-text" type="text" name="attr_ipoints_remain" title="ipoints_remain" value="@{invention_points}-@{abilityip_total}" disabled/>
+					INVENTING: <input class="sheet-number-text" type="text" name="attr_invention_points" title="invention_points" readonly /> 
+					Unspent <input class="sheet-number-text" type="text" name="attr_ipoints_remain" title="ipoints_remain" readonly />
 				</div>
 				<div class="ips">IPs:</div>
 			</div>
@@ -175,7 +204,7 @@
 			<div class="bc-grid-container">
 				<div class="cost-col"><input type="number" name="attr_strength_cost" title="strength_cost" value="0"/></div>
 				<div class="bc-col bc-label">ST</div>
-				<div class="score-col"><input type="text" name="attr_strength_score" title="strength_score" class="bc-number-field" readonly value="(@{strength_cost}+@{st_adj_total})"/></div>
+				<div class="score-col"><input type="text" name="attr_strength_score" title="strength_score" class="bc-number-field" readonly /></div>
 				<div class="save-col bc-label">SAVE</div>
 				<div class="roll-col">&nbsp;</div>
 			</div>
@@ -183,7 +212,7 @@
 			<div class="bc-grid-container">
 				<div class="cost-col"><input type="number" name="attr_endurance_cost" title="endurance_cost" value="0"/></div>
 				<div class="bc-col bc-label">EN</div>
-				<div class="score-col"><input type="text" name="attr_endurance_score" title="endurance_score" class="bc-number-field" readonly value="(@{endurance_cost}+@{en_adj_total})"/></div>
+				<div class="score-col"><input type="text" name="attr_endurance_score" title="endurance_score" class="bc-number-field" readonly /></div>
 				<div class="save-col">
 					<input type="text" name="attr_endurance_save" title="endurance_save" class="bc-number-field" readonly />		
 				</div>
@@ -194,7 +223,7 @@
 			<div class="bc-grid-container">
 				<div class="cost-col"><input type="number" name="attr_agility_cost" title="agility_cost" value="0"/></div>
 				<div class="bc-col bc-label">AG</div>
-				<div class="score-col"><input type="text" name="attr_agility_score" title="agility_score" class="bc-number-field" readonly value="(@{agility_cost}+@{ag_adj_total})"/></div>
+				<div class="score-col"><input type="text" name="attr_agility_score" title="agility_score" class="bc-number-field" readonly /></div>
 				<div class="save-col">
 					<input type="text" name="attr_agility_save" title="agility_save" class="bc-number-field" readonly />
 				</div>
@@ -205,9 +234,9 @@
 			<div class="bc-grid-container">
 				<div class="cost-col"><input type="number" name="attr_intelligence_cost" title="intelligence_cost" value="0"/></div>
 				<div class="bc-col bc-label">IN</div>
-				<div class="score-col"><input type="text" name="attr_intelligence_score" title="intelligence_score" class="bc-number-field" readonly value="(@{intelligence_cost}+@{in_adj_total})"/></div>
+				<div class="score-col"><input type="text" name="attr_intelligence_score" title="intelligence_score" class="bc-number-field" readonly></div>
 				<div class="save-col">
-					<input type="text" name="attr_intelligence_save" title="intelligence_save" class="bc-number-field" readonly value="@{hid_in_save}"/><input type="hidden" name="attr_hid_in_save" title="hid_in_save">
+					<input type="text" name="attr_intelligence_save" title="intelligence_save" class="bc-number-field" readonly />
 				</div>
 				<div class="roll-col">
 					<button type='roll' value='@{character_name} rolls a save against Intelligence with [[1d20<?{Intelligence Target|@{intelligence_save}}]] successes!' name='roll_Intelligence_Save'></button>
@@ -216,9 +245,9 @@
 			<div class="bc-grid-container">
 				<div class="cost-col"><input type="number" name="attr_cool_cost" title="cool_cost" value="0"/></div>
 				<div class="bc-col bc-label">CL</div>
-				<div class="score-col"><input type="text" name="attr_cool_score" title="cool_score" class="bc-number-field" readonly value="(@{cool_cost}+@{cl_adj_total})"/></div>
+				<div class="score-col"><input type="text" name="attr_cool_score" title="cool_score" class="bc-number-field" readonly/></div>
 				<div class="save-col">
-					<input type="text" name="attr_cool_save" title="cool_save" class="bc-number-field" readonly value="@{hid_cl_save}"/><input type="hidden" name="attr_hid_cl_save" title="hid_cl_save">
+					<input type="text" name="attr_cool_save" title="cool_save" class="bc-number-field" readonly />
 				</div>
 				<div class="roll-col">
 					<button type='roll' value='@{character_name} rolls a save against Cool with [[1d20<?{Cool Target|@{cool_save}}]] successes!' name='roll_Cool_Save'></button>
@@ -232,19 +261,19 @@
 				<div class="exp-tot-label">Exp</div>
 			</div>
 			<div class="experience-container">
-				<div class="main-exp-col"><input  class="number-text" type="text" name="attr_power_level" title="power_level" readonly/></div>
+				<div class="main-exp-col"></div>
 				<div class="exp-label-col exp-label">Base</div>
 				<div class="exp-total-col exp-number"><input type="number" name="attr_exp_base" title="exp_base" /></div>
 			</div>
 			<div class="experience-container">
 				<div class="main-exp-col"></div>
-				<div class="exp-label-col exp-label">Earned</div>
-				<div class="exp-total-col exp-number"><input  type="number" name="attr_exp_earned" title="exp_earned" /></div>
+				<div class="exp-label-col exp-label">Spent</div>
+				<div class="exp-total-col exp-number"><input  type="number" name="attr_exp_spent" title="exp_spent" /> Earned <input  type="number" name="attr_exp_earned" title="exp_earned" /></div>
 			</div>
 			<div class="experience-container">
-				<div class="main-exp-col"></div>
+				<div class="main-exp-col"><input  class="number-text" type="text" name="attr_power_level" title="power_level" readonly/></div>
 				<div class="exp-label-col exp-label">Total</div>
-				<div class="exp-total-col"><input  class="sheet-number-text" type="text" name="attr_exp_total" title="exp_total" value="(@{exp_earned}+@{exp_base})" disabled/></div>
+				<div class="exp-total-col"><input  class="sheet-number-text" type="text" name="attr_exp_total" title="exp_total" readonly/></div>
 			</div>
 		</div>
 		<div class="attacks">
@@ -267,7 +296,7 @@
 						</select>
 					</div>
 					<div class="tohit-col">
-						<input type="text" name="attr_tohit" title="tohit" class="bc-number-field" disabled/>
+						<input type="text" name="attr_tohit" title="tohit" class="bc-number-field" readonly/>
 						<button type='roll' value='@{character_name} attacks @{target|foe|character_name} with @{attack_one} and hits [[1d20<?{Combat Target|@{tohit_one}}]] times!' name='roll_Attack'></button>
 					</div>
 					<div class="dmg-col">
@@ -378,29 +407,29 @@
 					<span class="table-data">CAPS:</span>
 					<span class="table-data">&nbsp;</span>
 					<span class="table-data">BCs:</span>
-					<span class="table-data"><input type="number" name="attr_bc_score" title="bc_score" value="floor((@{exp_total}/5)+10)" disabled/></span>
+					<span class="table-data"><input type="text" name="attr_bc_score" title="bc_score" class="number-text" readonly/></span>
 					<span class="table-data">&nbsp;</span>
 					<span class="table-data">Abilty:</span>
 					<span class="table-data">&nbsp;</span>
-					<span class="table-data"><input type="number" name="attr_abilty_score" title="ability_score" value="floor(@{exp_total}/5)" disabled/></span>
+					<span class="table-data"><input type="text" name="attr_ability_score" title="ability_score" class="number-text" readonly/></span>
 					<span class="table-data">&nbsp;</span>
 					<span class="table-data">Dmg:</span>
 					<span class="table-data">&nbsp;</span>
-					<span class="table-data"><input type="number" name="attr_dmg_score" title="dmg_score" value="floor((@{exp_total}/12.5)+3)" disabled/></span>
+					<span class="table-data"><input type="text" name="attr_dmg_score" title="dmg_score" class="number-text" readonly/></span>
 					<span class="table-data">&emsp;</span>
 					<span class="table-data">GEAR:</span>
 					<span class="table-data">&nbsp;</span>
 					<span class="table-data">Break:</span>
-					<span class="table-data"><input type="number" name="attr_break_score" title="break_score" value="round((@{exp_total}/25)+5)" disabled/></span>
+					<span class="table-data"><input type="text" name="attr_break_score" title="break_score" class="number-text" readonly/></span>
 					<span class="table-data">&nbsp;</span>
 					<span class="table-data">Take:</span>
-					<span class="table-data"><input type="number" name="attr_take_score" title="take_score" value="round((@{exp_total}/25)+6)" disabled/></span>
+					<span class="table-data"><input type="text" name="attr_take_score" title="take_score" class="number-text" readonly/></span>
 					<span class="table-data">&nbsp;</span>
 					<span class="table-data">Disarm:</span>
-					<span class="table-data"><input type="number" name="attr_disarm_score" title="disarm_score" value="round((@{exp_total}/25)+3)" disabled/></span>
+					<span class="table-data"><input type="text" name="attr_disarm_score" title="disarm_score" class="number-text" readonly/></span>
 					<span class="table-data">&nbsp;</span>
 					<span class="table-data">BC:</span>
-					<span class="table-data"><input type="number" name="attr_bcfinal_score" title="bcfinal_score" value="round((@{exp_total}/15)+6)" disabled/></span>
+					<span class="table-data"><input type="text" name="attr_bcfinal_score" title="bcfinal_score" class="number-text" readonly/></span>
 				</div>
 			</div>
 		</div>
@@ -421,13 +450,13 @@
 	<div class="section-details">
 		<div class="table">
 			<div class="table-row">
-				<span class="table-data">SYSTEM SPACES: <input class="sheet-number-text" type="text" name="attr_vehicle_spaces" title="vehicle_spaces" disabled /></span>
+				<span class="table-data">SYSTEM SPACES: <input class="sheet-number-text" type="text" name="attr_vehicle_spaces" title="vehicle_spaces" readonly /></span>
 				<span class="table-data">&nbsp;</span>
-				<span class="table-data">PROFILE: <input class="sheet-number-text" type="text" name="attr_vehicle_profile" title="vehicle_profile" disabled /></span>
+				<span class="table-data">PROFILE: <input class="sheet-number-text" type="text" name="attr_vehicle_profile" title="vehicle_profile" readonly /></span>
 				<span class="table-data">&nbsp;</span>
-				<span class="table-data">WEIGHT: <input class="sheet-number-text" type="text" name="attr_vehicle_weight" title="vehicle_weight" disabled /> lbs</span>
+				<span class="table-data">WEIGHT: <input class="sheet-number-text" type="text" name="attr_vehicle_weight" title="vehicle_weight" readonly /> lbs</span>
 				<span class="table-data">&nbsp;</span>
-				<span class="table-data">MASS: <input class="sheet-number-text" type="text" name="attr_vehicle_mass" title="vehicle_mass" disabled /></span>
+				<span class="table-data">MASS: <input class="sheet-number-text" type="text" name="attr_vehicle_mass" title="vehicle_mass" readonly /></span>
 			</div>
 		</div>
 	</div>
@@ -436,19 +465,18 @@
 			<div class="table-row">
 				<span class="table-data">ARMOR:</span>
 				<span class="table-data">&nbsp;</span>
-				<span class="table-data">Kinetic: <input class="sheet-number-text" type="text" name="attr_vehicle_kinetic_armor" title="vehicle_kinetic_armor" disabled /></span>
+				<span class="table-data">Kinetic: <input class="sheet-number-text" type="text" name="attr_vehicle_kinetic_armor" title="vehicle_kinetic_armor" readonly /></span>
 				<span class="table-data">&nbsp;</span>
-				<span class="table-data">Energy: <input class="sheet-number-text" type="text" name="attr_vehicle_energy_armor" title="vehicle_energy_armor" disabled /></span>
+				<span class="table-data">Energy: <input class="sheet-number-text" type="text" name="attr_vehicle_energy_armor" title="vehicle_energy_armor" readonly /></span>
 				<span class="table-data">&nbsp;</span>
-				<span class="table-data">Biochem: <input class="sheet-number-text" type="text" name="attr_vehicle_bio_armor" title="vehicle_bio_armor" disabled /></span>
+				<span class="table-data">Biochem: <input class="sheet-number-text" type="text" name="attr_vehicle_bio_armor" title="vehicle_bio_armor" readonly /></span>
 				<span class="table-data">&nbsp;</span>
-				<span class="table-data">Entropy: <input class="sheet-number-text" type="text" name="attr_vehicle_entropy_armor" title="vehicle_entropy_armor" disabled /></span>
+				<span class="table-data">Entropy: <input class="sheet-number-text" type="text" name="attr_vehicle_entropy_armor" title="vehicle_entropy_armor" readonly /></span>
 				<span class="table-data">&nbsp;</span>
-				<span class="table-data">Psychic: <input class="sheet-number-text" type="text" name="attr_vehicle_psychic_armor" title="vehicle_psychic_armor" disabled /></span>
+				<span class="table-data">Psychic: <input class="sheet-number-text" type="text" name="attr_vehicle_psychic_armor" title="vehicle_psychic_armor" readonly /></span>
 			</div>
 		</div>
 	</div>
-
 	
 </div>
 
@@ -532,128 +560,128 @@
 	
 	
 
-	function updateFromBCs() {
-		getAttrs([
-			"strength_score",
-			"endurance_score",
-			"agility_score",
-			"intelligence_score",
-			"cool_score",
-			"init_adj_total",
-			"hp_adj_total",
-			"pwr_adj_total",
-			"luck_adj_total",
-			"weight",
-			"ability_cp_total",
-			"strength_cost",
-			"endurance_cost",
-			"agility_cost",
-			"intelligence_cost",
-			"cool_cost"
-		], function(v) {
-			let statTable = [
-				{min: 0, max: 0, carry: 8, hth_init: 'd2-1', save: 6, hits_st: -3, hits_en: -5, hits_ag: -2, hits_cl: -1, heal: .2},
-				{min: 1, max: 1, carry: 10, hth_init: 'd2-1', save: 7, hits_st: -3, hits_en: -5, hits_ag: -2, hits_cl: -1, heal: .3},
-				{min: 2, max: 2, carry: 12, hth_init: 'd2-1', save: 7, hits_st: -3, hits_en: -5, hits_ag: -2, hits_cl: -1, heal: .3},
-				{min: 3, max: 5, carry: 15, hth_init: 'd2', save: 8, hits_st: -2, hits_en: -3, hits_ag: -1, hits_cl: -0, heal: .5},
-				{min: 6, max: 8, carry: 30, hth_init: 'd3', save: 9,  hits_st: 0, hits_en: -1, hits_ag: 0, hits_cl: 1, heal: .8},
-				{min: 9, max: 11, carry: 60, hth_init: 'd4', save: 10, hits_st: 1, hits_en: 1, hits_ag: 1, hits_cl: 1, heal: 1},
-				{min: 12, max: 14, carry: 120, hth_init: 'd6', save: 11, hits_st: 3, hits_en: 3, hits_ag: 2, hits_cl: 2, heal: 1.6},
-				{min: 15, max: 17, carry: 240, hth_init: 'd6+1', save: 11, hits_st: 5, hits_en: 6, hits_ag: 3, hits_cl: 2, heal: 2.2},
-				{min: 18, max: 20, carry: 480, hth_init: 'd8+1', save: 12, hits_st: 6, hits_en: 8, hits_ag: 5, hits_cl: 3, heal: 2.8},
-				{min: 21, max: 23, carry: 960, hth_init: 'd10+1', save: 12, hits_st: 8, hits_en: 10, hits_ag: 6, hits_cl: 3, heal: 3.4},
-				{min: 24, max: 26, carry: 1920, hth_init: '2d6', save: 13, hits_st: 10, hits_en: 13, hits_ag: 7, hits_cl: 5, heal: 3.9},
-				{min: 27, max: 29, carry: 3840, hth_init: 'd6+d8', save: 13, hits_st: 12, hits_en: 15, hits_ag: 8, hits_cl: 5, heal: 4.5},
-				{min: 30, max: 32, carry: 7680, hth_init: '2d8', save: 14, hits_st: 14, hits_en: 17, hits_ag: 9, hits_cl: 5, heal: 5.1},
-				{min: 33, max: 35, carry: 15360, hth_init: 'd8+d10', save: 14, hits_st: 16, hits_en: 20, hits_ag: 10, hits_cl: 6, heal: 5.7},
-				{min: 36, max: 38, carry: 30720, hth_init: '2d10', save: 15, hits_st: 17, hits_en: 22, hits_ag: 12, hits_cl: 6, heal: 6.3},
-				{min: 39, max: 41, carry: 61440, hth_init: 'd10+d12', save: 15, hits_st: 19, hits_en: 25, hits_ag: 13, hits_cl: 7, heal: 6.9},
-				{min: 42, max: 44, carry: 122880, hth_init: '2d12', save: 16, hits_st: 21, hits_en: 27, hits_ag: 14, hits_cl: 7, heal: 7.5},
-				{min: 45, max: 47, carry: 245760, hth_init: '3d8', save: 16, hits_st: 23, hits_en: 29, hits_ag: 15, hits_cl: 8, heal: 8.1},
-				{min: 48, max: 50, carry: 491520, hth_init: '2d8+d10', save: 17, hits_st: 25, hits_en: 32, hits_ag: 16, hits_cl: 9, heal: 8.7},
-				{min: 51, max: 53, carry: 983040, hth_init: 'd8+2d10', save: 17, hits_st: 27, hits_en: 34, hits_ag: 17, hits_cl: 9, heal: 9.2},
-				{min: 54, max: 56, carry: 1966080, hth_init: '3d10', save: 18, hits_st: 28, hits_en: 36, hits_ag: 19, hits_cl: 10, heal: 9.8},
-				{min: 57, max: 59, carry: 3932160, hth_init: '2d10+d12', save: 18, hits_st: 30, hits_en: 39, hits_ag: 20, hits_cl: 10, heal: 10.4},
-				{min: 60, max: 62, carry: 7864320, hth_init: 'd10+2d12', save: 19, hits_st: 32, hits_en: 41, hits_ag: 21, hits_cl: 11, heal: 11},
-				{min: 63, max: 65, carry: 15728640, hth_init: '3d12', save: 19, hits_st: 34, hits_en: 43, hits_ag: 22, hits_cl: 12, heal: 11.6},
-				{min: 66, max: 68, carry: 31457280, hth_init: '3d12+1', save: 20, hits_st: 36, hits_en: 46, hits_ag: 23, hits_cl: 12, heal: 12.2},
-				{min: 69, max: 71, carry: 62914560, hth_init: '3d12+2', save: 20, hits_st: 38, hits_en: 48, hits_ag: 25, hits_cl: 13, heal: 12.8},
-				{min: 72, max: 74, carry: 125829120, hth_init: '4d10', save: 21, hits_st: 39, hits_en: 50, hits_ag: 26, hits_cl: 13, heal: 13.4},
-				{min: 75, max: 77, carry: 251658240, hth_init: '3d10+d12', save: 21, hits_st: 41, hits_en: 53, hits_ag: 27, hits_cl: 14, heal: 14},
-				{min: 78, max: 80, carry: 503316480, hth_init: '2d10+2d12', save: 22, hits_st: 43, hits_en: 55, hits_ag: 28, hits_cl: 15, heal: 14.5},
-				{min: 81, max: 83, carry: 1006632960, hth_init: 'd10+3d12', save: 22, hits_st: 45, hits_en: 58, hits_ag: 29, hits_cl: 15, heal: 15.1},
-				{min: 84, max: 86, carry: 2013265920, hth_init: '4d12', save: 23, hits_st: 47, hits_en: 60, hits_ag: 30, hits_cl: 16, heal: 15.7},
-				{min: 87, max: 89, carry: 4026531840, hth_init: '4d12+1', save: 23, hits_st: 48, hits_en: 62, hits_ag: 32, hits_cl: 16, heal: 16.3},
-				{min: 90, max: 92, carry: 8053063680, hth_init: '5d10', save: 24, hits_st: 50, hits_en: 65, hits_ag: 33, hits_cl: 17, heal: 16.9},
-				{min: 93, max: 95, carry: 16106127360, hth_init: '4d10+d12', save: 24, hits_st: 52, hits_en: 67, hits_ag: 34, hits_cl: 17, heal: 17.5},
-				{min: 96, max: 98, carry: 32212254720, hth_init: '3d10+2d12', save: 25, hits_st: 54, hits_en: 69, hits_ag: 35, hits_cl: 18, heal: 18.1}
-			];
-	
-			let stResult = statTable.filter(tableRow => (tableRow.min <= v.strength_score && tableRow.max >= v.strength_score));
-			let enResult = statTable.filter(tableRow => (tableRow.min <= v.endurance_score && tableRow.max >= v.endurance_score));
-			let agResult = statTable.filter(tableRow => (tableRow.min <= v.agility_score && tableRow.max >= v.agility_score));
-			let inResult = statTable.filter(tableRow => (tableRow.min <= v.intelligence_score && tableRow.max >= v.intelligence_score));
-			let clResult = statTable.filter(tableRow => (tableRow.min <= v.cool_score && tableRow.max >= v.cool_score));
-			let leap = (parseInt(v.weight,10) > 0) ? Math.floor(stResult[0].carry / parseInt(v.weight,10)) : '';
+	const soManyStats = [
+		"strength_score",
+		"endurance_score",
+		"agility_score",
+		"intelligence_score",
+		"cool_score",
+		"init_adj_total",
+		"hp_adj_total",
+		"pwr_adj_total",
+		"luck_adj_total",
+		"weight",
+		"ability_cp_total",
+		"strength_cost",
+		"endurance_cost",
+		"agility_cost",
+		"intelligence_cost",
+		"cool_cost",
+		"exp_base",
+		"exp_spent",
+		"exp_earned"
+		];
+		
+	const soManyChanges = soManyStats.map(stat => `change:${stat}`).join(' ');
+	on(`${soManyChanges}`, function() {
+	getAttrs(soManyStats, function(v) {
+		let statTable = [
+			{min: 0, max: 0, carry: 8, hth_init: 'd2-1', save: 6, hits_st: -3, hits_en: -5, hits_ag: -2, hits_cl: -1, heal: .2},
+			{min: 1, max: 1, carry: 10, hth_init: 'd2-1', save: 7, hits_st: -3, hits_en: -5, hits_ag: -2, hits_cl: -1, heal: .3},
+			{min: 2, max: 2, carry: 12, hth_init: 'd2-1', save: 7, hits_st: -3, hits_en: -5, hits_ag: -2, hits_cl: -1, heal: .3},
+			{min: 3, max: 5, carry: 15, hth_init: 'd2', save: 8, hits_st: -2, hits_en: -3, hits_ag: -1, hits_cl: -0, heal: .5},
+			{min: 6, max: 8, carry: 30, hth_init: 'd3', save: 9,  hits_st: 0, hits_en: -1, hits_ag: 0, hits_cl: 1, heal: .8},
+			{min: 9, max: 11, carry: 60, hth_init: 'd4', save: 10, hits_st: 1, hits_en: 1, hits_ag: 1, hits_cl: 1, heal: 1},
+			{min: 12, max: 14, carry: 120, hth_init: 'd6', save: 11, hits_st: 3, hits_en: 3, hits_ag: 2, hits_cl: 2, heal: 1.6},
+			{min: 15, max: 17, carry: 240, hth_init: 'd6+1', save: 11, hits_st: 5, hits_en: 6, hits_ag: 3, hits_cl: 2, heal: 2.2},
+			{min: 18, max: 20, carry: 480, hth_init: 'd8+1', save: 12, hits_st: 6, hits_en: 8, hits_ag: 5, hits_cl: 3, heal: 2.8},
+			{min: 21, max: 23, carry: 960, hth_init: 'd10+1', save: 12, hits_st: 8, hits_en: 10, hits_ag: 6, hits_cl: 3, heal: 3.4},
+			{min: 24, max: 26, carry: 1920, hth_init: '2d6', save: 13, hits_st: 10, hits_en: 13, hits_ag: 7, hits_cl: 5, heal: 3.9},
+			{min: 27, max: 29, carry: 3840, hth_init: 'd6+d8', save: 13, hits_st: 12, hits_en: 15, hits_ag: 8, hits_cl: 5, heal: 4.5},
+			{min: 30, max: 32, carry: 7680, hth_init: '2d8', save: 14, hits_st: 14, hits_en: 17, hits_ag: 9, hits_cl: 5, heal: 5.1},
+			{min: 33, max: 35, carry: 15360, hth_init: 'd8+d10', save: 14, hits_st: 16, hits_en: 20, hits_ag: 10, hits_cl: 6, heal: 5.7},
+			{min: 36, max: 38, carry: 30720, hth_init: '2d10', save: 15, hits_st: 17, hits_en: 22, hits_ag: 12, hits_cl: 6, heal: 6.3},
+			{min: 39, max: 41, carry: 61440, hth_init: 'd10+d12', save: 15, hits_st: 19, hits_en: 25, hits_ag: 13, hits_cl: 7, heal: 6.9},
+			{min: 42, max: 44, carry: 122880, hth_init: '2d12', save: 16, hits_st: 21, hits_en: 27, hits_ag: 14, hits_cl: 7, heal: 7.5},
+			{min: 45, max: 47, carry: 245760, hth_init: '3d8', save: 16, hits_st: 23, hits_en: 29, hits_ag: 15, hits_cl: 8, heal: 8.1},
+			{min: 48, max: 50, carry: 491520, hth_init: '2d8+d10', save: 17, hits_st: 25, hits_en: 32, hits_ag: 16, hits_cl: 9, heal: 8.7},
+			{min: 51, max: 53, carry: 983040, hth_init: 'd8+2d10', save: 17, hits_st: 27, hits_en: 34, hits_ag: 17, hits_cl: 9, heal: 9.2},
+			{min: 54, max: 56, carry: 1966080, hth_init: '3d10', save: 18, hits_st: 28, hits_en: 36, hits_ag: 19, hits_cl: 10, heal: 9.8},
+			{min: 57, max: 59, carry: 3932160, hth_init: '2d10+d12', save: 18, hits_st: 30, hits_en: 39, hits_ag: 20, hits_cl: 10, heal: 10.4},
+			{min: 60, max: 62, carry: 7864320, hth_init: 'd10+2d12', save: 19, hits_st: 32, hits_en: 41, hits_ag: 21, hits_cl: 11, heal: 11},
+			{min: 63, max: 65, carry: 15728640, hth_init: '3d12', save: 19, hits_st: 34, hits_en: 43, hits_ag: 22, hits_cl: 12, heal: 11.6},
+			{min: 66, max: 68, carry: 31457280, hth_init: '3d12+1', save: 20, hits_st: 36, hits_en: 46, hits_ag: 23, hits_cl: 12, heal: 12.2},
+			{min: 69, max: 71, carry: 62914560, hth_init: '3d12+2', save: 20, hits_st: 38, hits_en: 48, hits_ag: 25, hits_cl: 13, heal: 12.8},
+			{min: 72, max: 74, carry: 125829120, hth_init: '4d10', save: 21, hits_st: 39, hits_en: 50, hits_ag: 26, hits_cl: 13, heal: 13.4},
+			{min: 75, max: 77, carry: 251658240, hth_init: '3d10+d12', save: 21, hits_st: 41, hits_en: 53, hits_ag: 27, hits_cl: 14, heal: 14},
+			{min: 78, max: 80, carry: 503316480, hth_init: '2d10+2d12', save: 22, hits_st: 43, hits_en: 55, hits_ag: 28, hits_cl: 15, heal: 14.5},
+			{min: 81, max: 83, carry: 1006632960, hth_init: 'd10+3d12', save: 22, hits_st: 45, hits_en: 58, hits_ag: 29, hits_cl: 15, heal: 15.1},
+			{min: 84, max: 86, carry: 2013265920, hth_init: '4d12', save: 23, hits_st: 47, hits_en: 60, hits_ag: 30, hits_cl: 16, heal: 15.7},
+			{min: 87, max: 89, carry: 4026531840, hth_init: '4d12+1', save: 23, hits_st: 48, hits_en: 62, hits_ag: 32, hits_cl: 16, heal: 16.3},
+			{min: 90, max: 92, carry: 8053063680, hth_init: '5d10', save: 24, hits_st: 50, hits_en: 65, hits_ag: 33, hits_cl: 17, heal: 16.9},
+			{min: 93, max: 95, carry: 16106127360, hth_init: '4d10+d12', save: 24, hits_st: 52, hits_en: 67, hits_ag: 34, hits_cl: 17, heal: 17.5},
+			{min: 96, max: 98, carry: 32212254720, hth_init: '3d10+2d12', save: 25, hits_st: 54, hits_en: 69, hits_ag: 35, hits_cl: 18, heal: 18.1}
+		];
 
-			console.log(v.ability_cp_total);
-			console.log(v.luck_adj_total);
+		let stResult = statTable.filter(tableRow => (tableRow.min <= v.strength_score && tableRow.max >= v.strength_score));
+		let enResult = statTable.filter(tableRow => (tableRow.min <= v.endurance_score && tableRow.max >= v.endurance_score));
+		let agResult = statTable.filter(tableRow => (tableRow.min <= v.agility_score && tableRow.max >= v.agility_score));
+		let inResult = statTable.filter(tableRow => (tableRow.min <= v.intelligence_score && tableRow.max >= v.intelligence_score));
+		let clResult = statTable.filter(tableRow => (tableRow.min <= v.cool_score && tableRow.max >= v.cool_score));
+		let leap = (parseInt(v.weight,10) > 0) ? Math.floor(stResult[0].carry / parseInt(v.weight,10)) : '';
+		let exp_tot_spent = (parseInt(v.exp_base,10) || 0) + (parseInt(v.exp_spent,10) || 0)
 
-			setAttrs({
-				carry_capacity: stResult[0].carry,
-				endurance_save: enResult[0].save,
-				agility_save: agResult[0].save,
-				intelligence_save: inResult[0].save,
-				cool_save: clResult[0].save,
-				hth_damage: stResult[0].hth_init,
-				initiative_score: simplifyDice(clResult[0].hth_init + '+' + v.init_adj_total),
-				luck: 10+(parseInt(v.luck_adj_total,10) || 0),
-				power_score_max: (parseInt(v.strength_score,10) || 0) + (parseInt(v.endurance_score,10) || 0) + (parseInt(v.agility_score,10) || 0) + (parseInt(v.intelligence_score,10) || 0) + (parseInt(v.pwr_adj_total,10) || 0),
-				hits_score_max: stResult[0].hits_st + enResult[0].hits_en + agResult[0].hits_ag + clResult[0].hits_cl + (parseInt(v.hp_adj_total,10) || 0),
-				movement_leap: leap,
-				healing_rate: enResult[0].heal,
-				power_level: (parseInt(v.ability_cp_total,10) || 0) + (parseInt(v.strength_cost,10) || 0) + (parseInt(v.agility_cost,10) || 0) + (parseInt(v.endurance_cost,10) || 0) + (parseInt(v.intelligence_cost,10) || 0) + (parseInt(v.cool_cost,10) || 0)
-			});
+		// add sec clear
+
+		setAttrs({
+			carry_capacity: stResult[0].carry,
+			endurance_save: enResult[0].save,
+			agility_save: agResult[0].save,
+			intelligence_save: inResult[0].save,
+			cool_save: clResult[0].save,
+			hth_damage: stResult[0].hth_init,
+			initiative_score: simplifyDice(clResult[0].hth_init + '+' + v.init_adj_total),
+			luck: 10+(parseInt(v.luck_adj_total,10) || 0),
+			power_score_max: (parseInt(v.strength_score,10) || 0) + (parseInt(v.endurance_score,10) || 0) + (parseInt(v.agility_score,10) || 0) + (parseInt(v.intelligence_score,10) || 0) + (parseInt(v.pwr_adj_total,10) || 0),
+			hits_score_max: stResult[0].hits_st + enResult[0].hits_en + agResult[0].hits_ag + clResult[0].hits_cl + (parseInt(v.hp_adj_total,10) || 0),
+			movement_leap: leap,
+			healing_rate: enResult[0].heal,
+			power_level: (parseInt(v.ability_cp_total,10) || 0) + (parseInt(v.strength_cost,10) || 0) + (parseInt(v.agility_cost,10) || 0) + (parseInt(v.endurance_cost,10) || 0) + (parseInt(v.intelligence_cost,10) || 0) + (parseInt(v.cool_cost,10) || 0),
+			bc_score: Math.floor((exp_tot_spent/5)+10),
+			ability_score: Math.floor(exp_tot_spent/5),
+			dmg_score: Math.floor((exp_tot_spent/12.5)+3),
+			break_score: Math.round((exp_tot_spent/25)+5),
+			take_score: Math.round((exp_tot_spent/25)+6),
+			disarm_score: Math.round((exp_tot_spent/25)+3),
+			bcfinal_score: Math.round((exp_tot_spent/15)+6),
+			exp_total: (parseInt(v.exp_base,10) || 0) + (parseInt(v.exp_spent,10) || 0)
 		});
-	};
+	});
+});
 
-	function calcRepeating() {
-		repeatingSum(["abilityip_total", "st_adj_total", "en_adj_total", "ag_adj_total", "in_adj_total", "cl_adj_total","init_adj_total", "pwr_adj_total", "hp_adj_total", "luck_adj_total", "ability_cp_total"],
-		"powers",
-		["ip_cost", "st_adj", "en_adj", "ag_adj", "in_adj", "cl_adj", "init_adj","pwr_adj", "hp_adj", "luck_adj", "ability_cost"]);
-	}
+ 
 
 	["strength",  "endurance",   "agility",  "intelligence",  "cool"].forEach(stat => {
 		let stat_cost = `${stat}_cost`, stat_adj = (stat == 'cool') ? `cl_adj_total` : `${stat.slice(0,2)}_adj_total`;
 		on(`change:${stat_cost} change:${stat_adj}`, function() {
-			calcRepeating();
-
-		  	getAttrs([stat_cost, stat_adj], function(v) {
+			getAttrs([stat_cost, stat_adj], function(v) {
 				let cost = +v[stat_cost] ||0;
 				let adj =  +v[stat_adj] ||0;
 				let score = cost + adj;
 				setAttrs({
-				[`${stat}_score`]: score
+					[`${stat}_score`]: score
 				});
 			});
-
-			updateFromBCs();
 		});
 	});
 	
-	on('change:repeating_powers remove:repeating_powers change:weight', function() {
-		calcRepeating();
-		updateFromBCs();
+
+
+	on('change:repeating_powers remove:repeating_powers', function() {
+        repeatingSum(["abilityip_total", "st_adj_total", "en_adj_total", "ag_adj_total", "in_adj_total", "cl_adj_total","init_adj_total", "pwr_adj_total", "hp_adj_total", "luck_adj_total", "ability_cp_total"],
+        "powers",
+        ["ip_cost", "st_adj", "en_adj", "ag_adj", "in_adj", "cl_adj", "init_adj","pwr_adj", "hp_adj", "luck_adj", "ability_cost"]);
 	});
 
-
-	const buttonlist = ["character","vehicle"];
-    buttonlist.forEach(button => {
-        on(`clicked:${button}`, function() {
-            setAttrs({
-                sheetTab: button
-            });
-        });
-    });
 
 </script>

@@ -2,7 +2,8 @@ div.sheet-tab-content {
   display: none;
 }
 input.sheet-char-tab:checked ~ div.sheet-char-tab,
-input.sheet-veh-tab:checked ~ div.sheet-veh-tab {
+input.sheet-veh-tab:checked ~ div.sheet-veh-tab,
+input.sheet-notes-tab:checked ~ div.sheet-notes-tab {
   display: block;
 }
 .charsheet input.sheet-tab {
@@ -24,8 +25,14 @@ input.sheet-veh-tab:checked ~ div.sheet-veh-tab {
 input.sheet-tab[type="radio"]:checked + span.sheet-tab {
   font-weight: bold;
 }
+/* for 2 buttons
 .sheet-tab-spacer {
   width: 630px;
+  display: inline-block;
+}
+*/
+.sheet-tab-spacer {
+  width: 550px;
   display: inline-block;
 }
 .sheet-char-tab {
@@ -222,7 +229,7 @@ input.sheet-tab[type="radio"]:checked + span.sheet-tab {
   font-weight: bold;
   display: grid;
   grid-gap: 4px;
-  grid-template-columns: 50px 75px 41px;
+  grid-template-columns: 50px 70px 160px;
   grid-template-rows: auto;
   grid-template-areas: 
     "exp-top-label exp-top-label exp-tot-label"
@@ -243,6 +250,7 @@ input.sheet-tab[type="radio"]:checked + span.sheet-tab {
 .sheet-experience-container .sheet-exp-tot-label {
   grid-area: exp-tot-label;
 }
+
 .sheet-exp-label {
   font-weight: bold;
   width: 70px;
