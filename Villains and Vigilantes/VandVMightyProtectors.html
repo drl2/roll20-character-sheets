@@ -4,7 +4,7 @@
 <input type="radio" name="attr_tab" class="tab veh-tab" value="3" /> <span class="tab">Vehicle</span>
 
 <div class="tab-content notes-tab">
-    	<label class="title">Overview (Last update 6/25/2020)</label>
+    	<label class="title">Overview (Last update 7/??/2020)</label>
  		<p>This character sheet was conceived as an update to the existing Mighty Protectors character sheet created by Paul M. several years ago.  Goals for its design include:</p>
 		<ul>
 			<li>Present a look & feel more like the official character sheet.</li>
@@ -23,6 +23,14 @@
 			<li>Convert the Movement items into a repeater so players can add/remove as needed</li>
 		</ul>
 	
+		<label class="title">Version 1.9.1 (Released 8/??/2020)</label>
+		<ul>
+			<li>Added options and modifiers text areas under each power.  This allows for a simple one-line power description on the normally visible list, with the more detailed info down below in the toggle-able area.</li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+
 		<label class="title">Version 1.9.0 (Released 6/25/2020)</label>
 		<ul>
 			<li>First public test release.  Do not use for real games!  Much is not implemented yet.</li>
@@ -92,101 +100,50 @@
 						<input class="power-desc" type="text" name="attr_ability_desc" title="ability_desc"/>
 						<input type="checkbox" name="attr-options-flag" class="stats-toggle" unchecked><span class="stats-toggle pictos-button">y</span>
 						<div class="statmod-container">
-							<table> <!-- using table because it's really just a table -->
-								<tr>
-									<th class="statmod-label-cell">ST</th>
-									<th class="statmod-label-cell">EN</th>
-									<th class="statmod-label-cell">AG</th>
-									<th class="statmod-label-cell">IN</th>
-									<th class="statmod-label-cell">CL</th>
-									<th class="statmod-label-cell">Ph Def</th>
-									<th class="statmod-label-cell">Mnt Def</th>
-									<th class="statmod-label-cell">Power</th>
-									<th class="statmod-label-cell">Hit Pts</th>
-									<th class="statmod-label-cell">Init</th>
-									<th class="statmod-label-cell">Luck</th>
-								</tr>
-								<tr>
-									<td>
-										<input type="number" name="attr_st_adj" title="st_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_en_adj" title="en_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_ag_adj" title="ag_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_in_adj" title="in_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_cl_adj" title="cl_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_physdef_adj" title="physdef_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_mentdef_adj" title="mentdef_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_pwr_adj" title="pwr_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_hp_adj" title="hp_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_init_adj" title="init_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_luck_adj" title="luck_adj" />
-									</td>
-								</tr>
-								<tr><td colspan=11>&nbsp;</td></tr>
-								<tr>
-									<th class="statmod-label-cell">Attack</th>
-									<th class="statmod-label-cell">All</th>
-									<th class="statmod-label-cell">1</th>
-									<th class="statmod-label-cell">2</th>
-									<th class="statmod-label-cell">3</th>
-									<th class="statmod-label-cell">4</th>
-									<th class="statmod-label-cell">5</th>
-									<th class="statmod-label-cell">6</th>
-									<th class="statmod-label-cell"></th>
-									<th class="statmod-label-cell"></th>
-									<th class="statmod-label-cell"></th>
-								</tr>
-								<tr>
-									<td class="statmod-label-cell">To Hit</td>
-									<td>
-										<input type="number" name="attr_atk_all_adj" title="atk_all_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_atk_1_adj" title="atk_1_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_atk_2_adj" title="atk_2_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_atk_3_adj" title="atk_3_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_atk_4_adj" title="atk_4_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_atk_5_adj" title="atk_5_adj" />
-									</td>
-									<td>
-										<input type="number" name="attr_atk_6_adj" title="atk_6_adj" />
-									</td>
-									<td></td><td></td><td></td>
-								</tr>
-							</table>
+							<div class="power-detail-container">
+								<div class="bc_adj_st statmod-label-cell">ST<br /><input type="number" name="attr_st_adj" title="st_adj" /></div>
+								<div class="bc_adj_en statmod-label-cell">EN<br /><input type="number" name="attr_en_adj" title="en_adj" /></div>
+								<div class="bc_adj_ag statmod-label-cell">AG<br /><input type="number" name="attr_ag_adj" title="ag_adj" /></div>
+								<div class="bc_adj_in statmod-label-cell">IN<br /><input type="number" name="attr_in_adj" title="in_adj" /></div>
+								<div class="bc_adj_cl statmod-label-cell">CL<br /><input type="number" name="attr_cl_adj" title="cl_adj" /></div>
+								<div class="options_desc statmod-label-cell">Options<br />
+									<textarea class="power-options-textarea" name="attr_options" title="options"></textarea>
+								</div>
+
+								<div class="stat_adj_phdef statmod-label-cell">Ph Def<br /><input type="number" name="attr_physdef_adj" title="physdef_adj" /></div>
+								<div class="stat_adj_mntdef statmod-label-cell">Mnt Def<br /><input type="number" name="attr_mentdef_adj" title="mentdef_adj" /></div>
+								<div class="stat_adj_pwr statmod-label-cell">Power<br /><input type="number" name="attr_pwr_adj" title="pwr_adj" /></div>
+								<div class="stat_adj_hp statmod-label-cell">Hit Pts<br /><input type="number" name="attr_hp_adj" title="hp_adj" /></div>
+								<div class="stat_adj_init statmod-label-cell">Init<br /><input type="number" name="attr_init_adj" title="init_adj" /></div>
+								<div class="stat_adj_luck statmod-label-cell">Luck<br /><input type="number" name="attr_luck_adj" title="luck_adj" /></div>
+								
+								<div class="attack_adj_hdr1 statmod-label-cell">Attack<br />To Hit</div>
+								<div class="attack_adj_all_col statmod-label-cell">All<br /><input type="number" name="attr_atk_all_adj" title="atk_all_adj" /></div>
+								<div class="attack_adj1_col statmod-label-cell">1<br /><input type="number" name="attr_atk_1_adj" title="atk_1_adj" /></div>
+								<div class="attack_adj2_col statmod-label-cell">2<br /><input type="number" name="attr_atk_2_adj" title="atk_2_adj" /></div>
+								<div class="attack_adj3_col statmod-label-cell">3<br /><input type="number" name="attr_atk_3_adj" title="atk_3_adj" /></div>
+								<div class="attack_adj4_col statmod-label-cell">4<br /><input type="number" name="attr_atk_4_adj" title="atk_4_adj" /></div>
+								
+								<div class="mods_desc statmod-label-cell">Modifiers<br />
+									<textarea class="power-options-textarea" name="attr_modifiers" title="modifiers"></textarea>
+								</div>
+
+								<div class="attack_adj_hdr2 statmod-label-cell">Attack<br />To Hit</div>
+								<div class="attack_adj5_col statmod-label-cell">5<br /><input type="number" name="attr_atk_5_adj" title="atk_5_adj" /></div>
+								<div class="attack_adj6_col statmod-label-cell">6<br /><input type="number" name="attr_atk_6_adj" title="atk_6_adj" /></div>
+								<div class="attack_adj7_col statmod-label-cell">7<br /><input type="number" name="attr_atk_7_adj" title="atk_7_adj" /></div>
+								<div class="attack_adj8_col statmod-label-cell">8<br /><input type="number" name="attr_atk_8_adj" title="atk_8_adj" /></div>
+								<div class="attack_adj9_col statmod-label-cell">9<br /><input type="number" name="attr_atk_9_adj" title="atk_9_adj" /></div>
+
+
+							</div>
 	
 						</div>
 					</div>
 					<div class="ips"><input type="number" name="attr_ip_cost" title="ip_cost" value="0"/></div>
 					<div class="actions">
-						<button type="roll" name="roll_power_desc" value="&{template:powerdesc} {{desc=@{ability_desc}}}" class="tochat"></button>
+						<input type='checkbox' name='attr_power_active' title='power_active' checked  />
+						<button type="roll" name="roll_power_desc" value="&{template:powerdesc} {{desc=@{ability_desc}}} {{options=@{options}}} {{modifiers=@{modifiers}}}" class="tochat"></button>
 					</div>
 
 				</div>
@@ -335,6 +292,25 @@
 					<div class="other-desc-col"><input type="text" name="attr-other-type" title="other-type" class="short-field" /></div>
 				</div>
 			</fieldset>
+			<br />
+			<div class="movement-container">
+				<div class="move-type-col">MOVEMENT</div>
+				<div class="move-amt-col"></div>
+			</div>
+			<div class="movement-container">
+				<div class="move-type-col">Ground</div>
+				<div class="move-amt-col"><input  class="short-field" type="text" name="attr_movement_ground" title="movement_ground" value="round((@{strength_score}+@{endurance_score}+@{agility_score})/3)" disabled/></div>
+			</div>
+			<div class="movement-container">
+				<div class="move-type-col">Leaping</div>
+				<div class="move-amt-col"><input  class="short-field" type="text" name="attr_movement_leap" title="movement_leap" readonly/></div>
+			</div>
+			<fieldset class="repeating_movement">
+				<div class="movement-container">
+					<div class="move-type-col"><input class="med-field" type="text" name="attr_movement_name" title="movement_name"/></div>
+					<div class="move-amt-col"><input class="short-field" type="text" name="attr_movement_distance" title="movement_distance"/></div>	
+				</div>
+			</fieldset>
 		</div>
 	</div>
 	<div>
@@ -362,31 +338,15 @@
 		<div class="section-details">
 			<div class="table">
 				<div class="table-row">
-					<span class="table-data">INITIATIVE <input class="short-field" type="text" name="attr_initiative_score" title="initiative_score" readonly /><button type='roll' value='@{selected|token_name} [[ @{initiative_score} &{tracker:-}]]' name='roll_Initiative'></button>
+					<span class="table-data">POWER: (<input class="number-text" type="text" name="attr_power_score" title="power_score"/>/<input class="number-text" type="text" name="attr_power_score_max" title="power_score_max" readonly />)</span>
 					<span class="table-data">&emsp;</span>
-					<span class="table-data">Mass <input class="short-field" type="text" name="attr_mass" title="mass"/><button type='roll' value='@{character_name} rolls mass scoring: [[@{mass}]]' name='roll_Mass'></button></span>
+					<span class="table-data">INITIATIVE <input class="short-field" type="text" name="attr_initiative_score" title="initiative_score" readonly /><button type='roll' value='@{selected|token_name} [[ @{initiative_score} &{tracker:-}]]' name='roll_Initiative'></button></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">Mass <input class="short-field" type="text" name="attr_mass" title="mass" readonly/><button type='roll' value='@{character_name} rolls mass scoring: [[@{mass}]]' name='roll_Mass'></button></span>
 					<span class="table-data">&emsp;</span>
 					<span class="table-data">Wealth <input class="short-field" type="text" name="attr_wealth" title="wealth"/><button type='roll' value='@{character_name} rolls a wealth check getting: [[@{wealth}]]' name='roll_Wealth'></button></span>
 					<span class="table-data">&emsp;</span>
 					<span class="table-data">Luck <input class="number-text" type="text" name="attr_luck" title="luck" value="10" readonly/><button type='roll' value='@{character_name} makes a luck check with [[1d20<@{luck}]] successes' name='roll_Luck'></button></span>
-					<span class="table-data">&emsp;</span>
-					<span class="table-data">Profile <input type="number" name="attr_profile" title="personal-info-label" value="1" step=".1"/></span>
-				</div>
-			</div>
-		</div>
-		<div class="section-details">
-			<div class="table">
-				<div class="table-row">
-					<span class="table-data">POWER: (<input class="number-text" type="text" name="attr_power_score" title="power_score"/>/<input class="number-text" type="text" name="attr_power_score_max" title="power_score_max" readonly />)</span>
-					<span class="table-data">&emsp;</span>
-					<span class="table-data">MOVEMENT: Ground</span>
-					<span class="table-data"><input  class="number-text" type="text" name="attr_movement_ground" title="movement_ground" value="round((@{strength_score}+@{endurance_score}+@{agility_score})/3)" disabled/></span>
-					<span class="table-data">&emsp;</span>
-					<span class="table-data">Leaping</span>
-					<span class="table-data"><input  class="number-text" type="text" name="attr_movement_leap" title="movement_leap" readonly/></span>
-					<span class="table-data">&emsp;</span>
-					<span class="table-data"><input class="med-field" type="text" name="attr_movement_three_name" title="movement_three_name"/></span>
-					<span class="table-data"><input class="short-field" type="text" name="attr_movement_three" title="movement_three"/></span>
 				</div>
 			</div>
 		</div>
@@ -396,6 +356,9 @@
 					<span class="table-data">HITS: (<input class="sheet-number-text" type="text" name="attr_hits_score" title="hits_score"/>/<input class="sheet-number-text" type="text" name="attr_hits_score_max" title="hits_score_max" readonly/>)</span>
 					<span class="table-data">&emsp;</span>
 					<span class="table-data">HEALING: <input class="sheet-number-text" type="text" name="attr_healing_rate" title="healing_rate" readonly/></span>
+					<span class="table-data">&emsp;</span>
+					<span class="table-data">Profile <input type="number" name="attr_profile" title="personal-info-label" value="1" step=".1"/></span>
+
 				</div>
 			</div>
 		</div>
@@ -482,8 +445,12 @@
 
 <rolltemplate class="sheet-rolltemplate-powerdesc">
     <div class="container">
-		<div class="header">Ability Description</div>
+		<div class="header">Ability</div>
 		<div class="row"><span>{{desc}}</span></div>
+		<div class="header">Options</div>
+		<div class="row"><span>{{options}}</span></div>
+		<div class="header">Modifiers</div>
+		<div class="row"><span>{{modifiers}}</span></div>
 	</div>
 </rolltemplate>
 
@@ -579,7 +546,17 @@
 		"cool_cost",
 		"exp_base",
 		"exp_spent",
-		"exp_earned"
+		"exp_earned",
+		"atk_all_total",
+		"atk_1_total",
+		"atk_2_total",
+		"atk_3_total",
+		"atk_4_total",
+		"atk_5_total",
+		"atk_6_total",
+		"atk_7_total",
+		"atk_8_total",
+		"atk_9_total"
 		];
 		
 	const soManyChanges = soManyStats.map(stat => `change:${stat}`).join(' ');
@@ -630,9 +607,24 @@
 		let clResult = statTable.filter(tableRow => (tableRow.min <= v.cool_score && tableRow.max >= v.cool_score));
 		let leap = (parseInt(v.weight,10) > 0) ? Math.floor(stResult[0].carry / parseInt(v.weight,10)) : '';
 		let exp_tot_spent = (parseInt(v.exp_base,10) || 0) + (parseInt(v.exp_spent,10) || 0)
+		let mass_roll = null;
 
-		// add sec clear
+		if (parseInt(v.weight,10) > 0) {
+			let mass_val = parseInt(v.weight,10) /2;
 
+			var closestValue = Infinity;
+			var closestIndex = -1;
+			for (var i = 0; i < statTable.length; ++i) {
+			  var diff = Math.abs(statTable[i].carry - mass_val);
+			  if (diff < closestValue) {
+				closestValue = diff;
+				closestIndex = i;
+			  }
+			}
+			mass_roll = statTable[closestIndex].hth_init;
+		}
+
+		
 		setAttrs({
 			carry_capacity: stResult[0].carry,
 			endurance_save: enResult[0].save,
@@ -654,8 +646,39 @@
 			take_score: Math.round((exp_tot_spent/25)+6),
 			disarm_score: Math.round((exp_tot_spent/25)+3),
 			bcfinal_score: Math.round((exp_tot_spent/15)+6),
-			exp_total: (parseInt(v.exp_base,10) || 0) + (parseInt(v.exp_spent,10) || 0)
+			exp_total: (parseInt(v.exp_base,10) || 0) + (parseInt(v.exp_spent,10) || 0),
+			mass: mass_roll,
+			security_clearance: clResult[0].save + inResult[0].save + Math.floor((v.exp_earned || 0)/5) -20
 		});
+
+
+		getSectionIDsOrdered('attacks', function (ids) {
+			const toHitValArray = [];
+			const toHitStatArray = [];
+
+			console.log('==== ids');
+			console.log(ids);
+			
+			if (ids.length > 0) {
+				ids.forEach(id => toHitValArray.push(
+					`repeating_attacks_${id}_tohit`
+				));
+				ids.forEach(id => toHitStatArray.push(
+					`repeating_attacks_${id}_tohit_bc`
+				));
+
+				ids.forEach(function(id, index) {
+					console.log('Attack ' + index+1 + '= ' + eval(`v.atk_${index+1}_total`));
+				});
+			}
+
+			console.log('==== toHitValArray');
+			console.log(toHitValArray);
+			console.log('==== toHitStatArray');
+			console.log(toHitStatArray);
+		});
+
+		
 	});
 });
 
@@ -678,10 +701,59 @@
 
 
 	on('change:repeating_powers remove:repeating_powers', function() {
-        repeatingSum(["abilityip_total", "st_adj_total", "en_adj_total", "ag_adj_total", "in_adj_total", "cl_adj_total","init_adj_total", "pwr_adj_total", "hp_adj_total", "luck_adj_total", "ability_cp_total"],
+		repeatingSum(["abilityip_total", "st_adj_total", "en_adj_total", "ag_adj_total", "in_adj_total", "cl_adj_total","init_adj_total", "pwr_adj_total", 
+		"hp_adj_total", "luck_adj_total", "ability_cp_total","atk_all_total","atk_1_total","atk_2_total","atk_3_total","atk_4_total","atk_5_total",
+		"atk_6_total","atk_7_total","atk_8_total","atk_9_total"],
         "powers",
-        ["ip_cost", "st_adj", "en_adj", "ag_adj", "in_adj", "cl_adj", "init_adj","pwr_adj", "hp_adj", "luck_adj", "ability_cost"]);
+		[
+		"ip_cost",
+		["st_adj","power_active"],
+		["en_adj", "power_active"],
+		["ag_adj", "power_active"],
+		["in_adj", "power_active"],
+		["cl_adj", "power_active"],
+		["init_adj","power_active"],
+		["pwr_adj", "power_active"],
+		["hp_adj","power_active"],
+		["luck_adj","power_active"],
+		"ability_cost",
+		["atk_all_adj","power_active"],
+		["atk_1_adj","power_active"],
+		["atk_2_adj","power_active"],
+		["atk_3_adj","power_active"],
+		["atk_4_adj","power_active"],
+		["atk_5_adj","power_active"],
+		["atk_6_adj","power_active"],
+		["atk_7_adj","power_active"],
+		["atk_8_adj","power_active"],
+		["atk_9_adj","power_active"]
+		]);
 	});
 
+	function findClosest (value) {
+		// By default that will be a big number
+		var closestValue = Infinity;
+		// We will store the index of the element
+		var closestIndex = -1;
+		for (var i = 0; i < array.length; ++i) {
+		  var diff = Math.abs(array[i].carry - value);
+		  if (diff < closestValue) {
+			closestValue = diff;
+			closestIndex = i;
+		  }
+		}
+		return closestIndex;
+	  }
+
+	  var getSectionIDsOrdered = function (sectionName, callback) {
+		'use strict';
+		getAttrs([`_reporder_${sectionName}`], function (v) {
+		  getSectionIDs(sectionName, function (idArray) {
+			let reporderArray = v[`_reporder_${sectionName}`] ? v[`_reporder_${sectionName}`].toLowerCase().split(',') : [],
+			  ids = [...new Set(reporderArray.filter(x => idArray.includes(x)).concat(idArray))];
+			callback(ids);
+		  });
+		});
+	  };
 
 </script>

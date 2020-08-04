@@ -38,7 +38,9 @@ input.sheet-tab[type="radio"]:checked + span.sheet-tab {
 .sheet-char-tab {
   margin-top: 4px;
 }
-
+.sheet-veh-tab {
+  margin-top: 4px;
+}
 .sheet-section-details {
   font-weight: bold;
   margin-bottom: 5px;
@@ -100,8 +102,8 @@ input.sheet-tab[type="radio"]:checked + span.sheet-tab {
 
 .sheet-powers-grid-container {
   display: grid;
-  grid-gap: 3px;
-  grid-template-columns: 75px 505px 75px 75px;
+  grid-gap: 2px;
+  grid-template-columns: 70px 550px 70px 40px;
   grid-template-columns: auto;
   grid-template-areas: 
     "cps power-desc ips actions"
@@ -225,6 +227,124 @@ input.sheet-tab[type="radio"]:checked + span.sheet-tab {
   grid-area: other-desc-col;
 }
 
+
+
+.sheet-power-detail-container {
+  display: grid;
+  grid-gap: 6px;
+  grid-template-columns: 50px 50px 50px 50px 50px 50px 70px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "bc_adj_st bc_adj_en bc_adj_ag bc_adj_in bc_adj_cl pwr_dummy1 options_desc"
+    "stat_adj_phdef stat_adj_mntdef stat_adj_pwr stat_adj_hp stat_adj_init stat_adj_luck options_desc"
+    "attack_adj_hdr1 attack_adj_all_col attack_adj1_col attack_adj2_col attack_adj3_col attack_adj4_col mods_desc"
+    "attack_adj_hdr2 attack_adj5_col attack_adj6_col attack_adj7_col attack_adj8_col attack_adj9_col mods_desc";
+}
+.sheet-power-detail-container .sheet-bc_adj_st {
+  grid-area: bc_adj_st;
+}
+.sheet-power-detail-container .sheet-bc_adj_en {
+  grid-area: bc_adj_en;
+}
+.sheet-power-detail-container .sheet-bc_adj_ag {
+  grid-area: bc_adj_ag;
+}
+.sheet-power-detail-container .sheet-bc_adj_in {
+  grid-area: bc_adj_in;
+}
+.sheet-power-detail-container .sheet-bc_adj_cl {
+  grid-area: bc_adj_cl;
+}
+.sheet-power-detail-container .sheet-options_desc {
+  grid-area: options_desc;
+}
+.sheet-power-detail-container .sheet-stat_adj_phdef {
+  grid-area: stat_adj_phdef;
+}
+.sheet-power-detail-container .sheet-stat_adj_mntdef {
+  grid-area: stat_adj_mntdef;
+}
+.sheet-power-detail-container .sheet-stat_adj_pwr {
+  grid-area: stat_adj_pwr;
+}
+.sheet-power-detail-container .sheet-stat_adj_hp {
+  grid-area: stat_adj_hp;
+}
+.sheet-power-detail-container .sheet-stat_adj_init {
+  grid-area: stat_adj_init;
+}
+.sheet-power-detail-container .sheet-stat_adj_luck {
+  grid-area: stat_adj_luck;
+}
+.sheet-power-detail-container .sheet-stat_adj_luck {
+  grid-area: stat_adj_luck;
+}
+.sheet-power-detail-container .sheet-mods_desc {
+  grid-area: mods_desc;
+}
+.sheet-power-detail-container .sheet-pwr_dummy1 {
+  grid-area: attack_pwr_dummy1;
+}
+.sheet-power-detail-container .sheet-attack_adj_hdr1 {
+  grid-area: attack_adj_hdr1;
+}
+.sheet-power-detail-container .sheet-attack_adj_hdr2 {
+  grid-area: attack_adj_hdr2;
+}
+.sheet-power-detail-container .sheet-attack_adj_all_col {
+  grid-area: attack_adj_all_col;
+}
+.sheet-power-detail-container .sheet-attack_adj1_col {
+  grid-area: attack_adj1_col;
+}
+.sheet-power-detail-container .sheet-attack_adj2_col {
+  grid-area: attack_adj2_col;
+}
+.sheet-power-detail-container .sheet-attack_adj3_col {
+  grid-area: attack_adj3_col;
+}
+.sheet-power-detail-container .sheet-attack_adj4_col {
+  grid-area: attack_adj4_col;
+}
+.sheet-power-detail-container .sheet-attack_adj5_col {
+  grid-area: attack_adj5_col;
+}
+.sheet-power-detail-container .sheet-attack_adj6_col {
+  grid-area: attack_adj6_col;
+}
+.sheet-power-detail-container .sheet-attack_adj7_col {
+  grid-area: attack_adj7_col;
+}
+.sheet-power-detail-container .sheet-attack_adj8_col {
+  grid-area: attack_adj8_col;
+}
+.sheet-power-detail-container .sheet-attack_adj9_col {
+  grid-area: attack_adj9_col;
+}
+
+.sheet-power-options-textarea {
+  height: 55px;
+  width: 300px;
+}
+
+
+
+.sheet-movement-container {
+  font-weight: bold;
+  display: grid;
+  grid-gap: 4px;
+  grid-template-columns: 100px 200px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "move-type-col move-amt-col"
+}
+.sheet-movement-container .sheet-move-type-col {
+  grid-area: move-type-col;
+}
+.sheet-movement-container .sheet-move-amt-col {
+  grid-area: move-amt-col;
+}
+
 .sheet-experience-container {
   font-weight: bold;
   display: grid;
@@ -297,21 +417,20 @@ input.sheet-tab[type="radio"]:checked + span.sheet-tab {
   padding-top: 3px;
 }
 input.sheet-power-desc{
-  width: 645px;
+  width: 570px;
 }
 .sheet-power-desc {
-  width: 675px;
+  width: 610px;
 }
 .sheet-cps {
   font-weight: bold;
   
 }
 .sheet-ips {
-  font-weight: bold;
-  
+  font-weight: bold; 
 }
 .sheet-actions {
-  width: 30px;
+  width: 34px;
 }
 .sheet-inventing {
   font-style: italic;
